@@ -7,16 +7,18 @@ import { TipsAndTricks } from "@/components/home-content/tips-tricks";
 import { HowTos } from "@/components/home-content/how-tos";
 import { Resources } from "@/components/home-content/resources";
 import { Features } from "@/components/home-content/features";
+import { HomeMenu } from "./menu";
 
 export default function HomeContent() {
   return (
-    <VStack gap="2rem">
+    <VStack gap="6rem" pb="4rem">
+      <HomeMenu />
       <Hero />
       <VStack
         justify="center"
         align={{ base: "left", lg: "center" }}
         w="full"
-        gap="2rem"
+        gap="6rem"
         px={{ base: "30px", md: 8 }}
       >
         <Introduction />

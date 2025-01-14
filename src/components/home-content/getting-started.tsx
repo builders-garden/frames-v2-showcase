@@ -2,6 +2,7 @@ import { VStack, Heading, Text, Box } from "@chakra-ui/react";
 
 import { FarcasterLink } from "@/components/farcaster-link";
 import { Title } from "../ui/title";
+import { getTitleId, MenuLink } from "./menu/data";
 
 export const GettingStarted = () => {
   return (
@@ -11,7 +12,7 @@ export const GettingStarted = () => {
       w="full"
       gap={4}
     >
-      <Title>Getting Started</Title>
+      <Title id={getTitleId(MenuLink.GettingStarted)}>Getting Started</Title>
 
       <Text fontSize={{ base: "18px", md: "xl" }} textAlign="left">
         Here's a full walkthrough of creating a frames v2 app:

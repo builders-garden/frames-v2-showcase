@@ -2,6 +2,7 @@ import { LinkBox } from "@/components/ui/link";
 import { Subtitle, Title } from "@/components/ui/title";
 import { Heading, VStack } from "@chakra-ui/react";
 import { resourcesData } from "./data";
+import { getTitleId, MenuLink } from "../menu/data";
 
 export const Resources = () => {
   return (
@@ -11,7 +12,7 @@ export const Resources = () => {
       w="full"
       gap="1.5rem"
     >
-      <Title id="resources-link">Resources</Title>
+      <Title id={getTitleId(MenuLink.Resources)}>Resources</Title>
       {resourcesData.map((resource) => (
         <VStack
           key={resource.category}

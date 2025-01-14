@@ -5,13 +5,13 @@ import React, { useState } from "react";
 import { IoIosMenu } from "react-icons/io";
 import { IoClose } from "react-icons/io5";
 import { MenuItem, MenuSubItem } from "./items";
-import { menuItems } from "./data";
+import { getTitleId, menuItems } from "./data";
 
 const scrollToSection = (id: string) => {
   const section = document.getElementById(id);
   console.log("section", section);
   if (section) {
-    const yOffset = -25;
+    const yOffset = -35;
     const y =
       section.getBoundingClientRect().top + window.pageYOffset + yOffset;
     window.scrollTo({ top: y, behavior: "smooth" });
@@ -22,7 +22,7 @@ export const HomeMenu = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div style={{ position: "fixed", bottom: "1.5rem", right: "1.5rem" }}>
+    <Box position="fixed" bottom="2rem" right="2rem" zIndex={100}>
       <MenuRoot
         positioning={{ placement: "top-start" }}
         open={open}
@@ -65,7 +65,10 @@ export const HomeMenu = () => {
         >
           {menuItems.map((item, index) => (
             <Box key={index} mb={item.subitems ? "0.5rem" : "0"}>
-              <MenuItem id={`${item.value}-item`} value={`${item.value}-link`}>
+              <MenuItem
+                id={`${item.value}-item`}
+                value={getTitleId(item.value)}
+              >
                 {item.text}
               </MenuItem>
               {item.subitems && (
@@ -85,6 +88,6 @@ export const HomeMenu = () => {
           ))}
         </MenuContent>
       </MenuRoot>
-    </div>
+    </Box>
   );
 };

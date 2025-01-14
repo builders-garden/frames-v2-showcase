@@ -1,27 +1,61 @@
+export const getTitleId = (menuLink: MenuLink) => {
+  return `${menuLink}-link`;
+};
+
+export enum MenuLink {
+  Introduction = "introduction",
+  GettingStarted = "getting-started",
+  Features = "features",
+  FarcasterContext = "farcaster-context",
+  Auth = "auth",
+  AddFrame = "add-frame",
+  ShowFarcasterProfile = "show-farcaster-profile",
+  NotificationsAndWebhook = "notifications-&-webhook",
+  Signature = "signature",
+  WalletSupport = "wallet-support",
+  TipAndTricks = "tip-&-tricks",
+  HowTo = "how-to",
+  Debug = "debug",
+  ConvertExistingProjects = "convert-existing-projects",
+  Resources = "resources",
+}
+
 export const menuItems = [
-  { text: "Introduction", value: "introduction" },
-  { text: "Getting Started", value: "getting-started" },
-  { text: "Features", value: "features" },
+  { text: "Introduction", value: MenuLink.Introduction },
+  { text: "Getting Started", value: MenuLink.GettingStarted },
   {
-    text: "Farcaster Context",
-    value: "farcaster-context",
+    text: "Features",
+    value: MenuLink.Features,
     subitems: [
-      { text: "Auth", value: "auth" },
-      { text: "Add frame", value: "add-frame" },
-      { text: "Show Farcaster profile", value: "show-farcaster-profile" },
-      { text: "Notifications & Webhook", value: "notifications-&-webhook" },
-      { text: "Signature", value: "signature" },
-      { text: "Wallet support", value: "wallet-support" },
+      {
+        text: "Farcaster Context",
+        value: MenuLink.FarcasterContext,
+      },
+      { text: "Auth", value: MenuLink.Auth },
+      { text: "Add frame", value: MenuLink.AddFrame },
+      { text: "Show Farcaster profile", value: MenuLink.ShowFarcasterProfile },
+      {
+        text: "Notifications & Webhook",
+        value: MenuLink.NotificationsAndWebhook,
+      },
+      { text: "Signature", value: MenuLink.Signature },
+      { text: "Wallet support", value: MenuLink.WalletSupport },
     ],
   },
-  { text: "Tip & Tricks", value: "tip-&-tricks" },
-  { text: "How to", value: "how-to" },
+  { text: "Tip & Tricks", value: MenuLink.TipAndTricks },
   {
-    text: "Debug",
-    value: "debug",
+    text: "How to",
+    value: MenuLink.HowTo,
     subitems: [
-      { text: "Convert existing projects", value: "convert-existing-projects" },
+      {
+        text: "Debug",
+        value: MenuLink.Debug,
+      },
+      {
+        text: "Convert existing projects",
+        value: MenuLink.ConvertExistingProjects,
+      },
     ],
   },
-  { text: "Resources", value: "resources" },
+  { text: "Resources", value: MenuLink.Resources },
 ];

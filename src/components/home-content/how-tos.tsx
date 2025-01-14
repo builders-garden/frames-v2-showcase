@@ -1,7 +1,8 @@
-import { VStack, Heading, Text, Box } from "@chakra-ui/react";
+import { VStack, Text, Box } from "@chakra-ui/react";
 
 import { FarcasterLink } from "@/components/farcaster-link";
 import { Title } from "../ui/title";
+import { getTitleId, MenuLink } from "./menu/data";
 
 export const HowTos = () => {
   const howTos = [
@@ -21,7 +22,7 @@ export const HowTos = () => {
       w="full"
       gap={4}
     >
-      <Title>How to</Title>
+      <Title id={getTitleId(MenuLink.HowTo)}>How to</Title>
 
       <Text fontSize={{ base: "18px", md: "xl" }} textAlign="left">
         Here's some guides on how to:

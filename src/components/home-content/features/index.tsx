@@ -11,6 +11,7 @@ import {
 
 import { FarcasterContext } from "./farcaster-context";
 import { AddFrame } from "./add-frame";
+import { getTitleId, MenuLink } from "../menu/data";
 
 export function Features() {
   const { context, isSDKLoaded } = useFrameContext();
@@ -21,7 +22,7 @@ export function Features() {
 
   const items = [
     {
-      id: "farcaster-context",
+      id: MenuLink.FarcasterContext,
       value: "a",
       title: "Farcaster Context",
       Subtitle:
@@ -29,7 +30,7 @@ export function Features() {
       text: <FarcasterContext context={context} isSDKLoaded />,
     },
     {
-      id: "add-frame",
+      id: MenuLink.AddFrame,
       value: "c",
       title: "Add Frame",
       Subtitle: "Add a frame to the client (warpcast)",
@@ -39,16 +40,18 @@ export function Features() {
 
   return (
     <VStack gap="1rem" width="100%" alignItems="flex-start">
-      <Title>Features</Title>
+      <Title id={getTitleId(MenuLink.Features)}>Features</Title>
       <Paragraph>
         Try these interactive features to experience frames v2 potential
       </Paragraph>
-      <AccordionRoot collapsible>
+      <AccordionRoot collapsible multiple>
         {items.map((item) => (
           <AccordionItem key={item.id} value={item.value}>
             <AccordionItemTrigger>
               <Stack gap="1">
-                <Subtitle color="primary">{item.title}</Subtitle>
+                <Subtitle color="primary" id={getTitleId(item.id)}>
+                  {item.title}
+                </Subtitle>
                 <Text fontSize="sm" color="fg.muted">
                   {item.Subtitle}
                 </Text>

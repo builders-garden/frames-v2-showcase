@@ -3,6 +3,7 @@ import { VStack, Text } from "@chakra-ui/react";
 import { FarcasterLink } from "@/components/farcaster-link";
 import { HighlightedText } from "@/components/highlight-text";
 import { Title } from "../ui/title";
+import { getTitleId, MenuLink } from "./menu/data";
 
 export const Introduction = () => {
   return (
@@ -12,7 +13,7 @@ export const Introduction = () => {
       w="full"
       gap={4}
     >
-      <Title>Introduction</Title>
+      <Title id={getTitleId(MenuLink.Introduction)}>Introduction</Title>
 
       <Text fontSize={{ base: "18px", md: "xl" }} textAlign="left">
         Frames launched as a way to build{" "}

@@ -6,6 +6,8 @@ import { Providers } from "@/components/providers";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 
+import { Toaster } from "@/components/ui/toaster";
+
 const poppins = Poppins({
   variable: "--font-poppins",
   weight: ["400", "500", "600", "700"],
@@ -28,7 +30,10 @@ export default async function RootLayout({
       <body
         className={`${poppins.className} antialiased size-full min-h-screen`}
       >
-        <Providers session={session}>{children}</Providers>
+        <Providers session={session}>
+          {children}
+          <Toaster />
+        </Providers>
       </body>
     </html>
   );

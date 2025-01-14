@@ -28,7 +28,7 @@ const exampleContext = {
   location: null,
 };
 
-export default function FarcasterContext({
+export function FarcasterContext({
   context,
   isSDKLoaded,
 }: FarcasterContextProps) {

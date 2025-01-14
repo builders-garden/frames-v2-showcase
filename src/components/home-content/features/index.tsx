@@ -1,14 +1,16 @@
 import { VStack, Text, Stack } from "@chakra-ui/react";
 import { useFrameContext } from "@/hooks/frame-context";
-import { Subtitle, Title } from "../../ui/title";
-import { Paragraph } from "../../ui/paragraph";
+import { Subtitle, Title } from "@/components/ui/title";
+import { Paragraph } from "@/components/ui/paragraph";
 import {
   AccordionItem,
   AccordionItemContent,
   AccordionItemTrigger,
   AccordionRoot,
-} from "../../ui/accordion";
-import FarcasterContext from "./farcaster-context";
+} from "@/components/ui/accordion";
+
+import { FarcasterContext } from "./farcaster-context";
+import { AddFrame } from "./add-frame";
 
 export function Features() {
   const { context, isSDKLoaded } = useFrameContext();
@@ -19,6 +21,7 @@ export function Features() {
 
   const items = [
     {
+      id: "farcaster-context",
       value: "a",
       title: "Farcaster Context",
       Subtitle:
@@ -26,10 +29,11 @@ export function Features() {
       text: <FarcasterContext context={context} isSDKLoaded />,
     },
     {
-      value: "b",
-      title: "Auth",
-      Subtitle: "Subtitle",
-      text: <FarcasterContext context={context} isSDKLoaded />,
+      id: "add-frame",
+      value: "c",
+      title: "Add Frame",
+      Subtitle: "Add a frame to the client (warpcast)",
+      text: <AddFrame />,
     },
   ];
 
@@ -40,8 +44,8 @@ export function Features() {
         Try these interactive features to experience frames v2 potential
       </Paragraph>
       <AccordionRoot collapsible>
-        {items.map((item, index) => (
-          <AccordionItem key={index} value={item.value}>
+        {items.map((item) => (
+          <AccordionItem key={item.id} value={item.value}>
             <AccordionItemTrigger>
               <Stack gap="1">
                 <Subtitle color="primary">{item.title}</Subtitle>

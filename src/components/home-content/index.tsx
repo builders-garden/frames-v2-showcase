@@ -1,4 +1,4 @@
-import { HStack, Input, Text } from "@chakra-ui/react";
+import { HStack, VStack, Input, Text, Image } from "@chakra-ui/react";
 import { Button } from "@/components/ui/button";
 import {
   PopoverRoot,
@@ -9,12 +9,24 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { useFrameContext } from "@/hooks/frame-context";
-import { useColorMode } from "../ui/color-mode";
 
 export default function HomeContent() {
-  useFrameContext();
+  const { context } = useFrameContext();
   return (
-    <HStack w="fit-content" mx="auto" mt="4rem">
+    <VStack w="full" h="full" px="4" py="2">
+      <HStack w="full" justifyContent="space-between" alignItems="center">
+        <Text my="4">Logo</Text>
+        <HStack alignItems="center">
+          <Image
+            src={context?.user.pfpUrl}
+            alt={`${context?.user.username} avatar`}
+            width={10}
+            height={10}
+            borderRadius="full"
+          />
+          <Text my="4">{context?.user.username}</Text>
+        </HStack>
+      </HStack>
       <Button size="xs">Click me</Button>
       <PopoverRoot>
         <PopoverTrigger asChild>
@@ -34,6 +46,6 @@ export default function HomeContent() {
           </PopoverBody>
         </PopoverContent>
       </PopoverRoot>
-    </HStack>
+    </VStack>
   );
 }

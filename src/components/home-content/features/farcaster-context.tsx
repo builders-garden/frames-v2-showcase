@@ -1,7 +1,8 @@
 import { Alert } from "@/components/ui/alert";
+import { Avatar } from "@/components/ui/avatar";
 import CodeBlock from "@/components/ui/code-block";
 import { Paragraph } from "@/components/ui/paragraph";
-import { Code, VStack } from "@chakra-ui/react";
+import { Code, HStack, Stack, VStack, Text } from "@chakra-ui/react";
 import { Context } from "@farcaster/frame-sdk";
 import { LuBadgeAlert } from "react-icons/lu";
 
@@ -16,7 +17,7 @@ const exampleContext = {
     username: "dwr.eth",
     displayName: "Dan Romero",
     pfpUrl:
-      "https://pbs.twimg.com/profile_images/1440899720624421890/5zXvP7Yi_400x400.jpg",
+      "https://wrpcd.net/cdn-cgi/imagedelivery/BXluQx4ige9GuW0Ia56BHw/bc698287-5adc-4cc5-a503-de16963ed900/anim=false,fit=contain,f=auto,w=336",
   },
   client: {
     clientFid: "number",
@@ -31,6 +32,8 @@ export default function FarcasterContext({
   context,
   isSDKLoaded,
 }: FarcasterContextProps) {
+  const user = context?.user || exampleContext.user;
+
   return (
     <VStack gap="1rem" width="100%" alignItems="flex-start">
       <Paragraph>
@@ -42,6 +45,17 @@ export default function FarcasterContext({
         <Code variant="solid">sdk.context</Code> to see information about the
         current user.
       </Paragraph>
+      <HStack key={user.fid} gap="4" my={4}>
+        <Avatar name={user.displayName} size="lg" src={user.pfpUrl} />
+        <Stack gap="0">
+          <Text fontWeight="medium">
+            {user.displayName} {`#${user.fid}`}
+          </Text>
+          <Text color="fg.muted" textStyle="sm">
+            {user.username}
+          </Text>
+        </Stack>
+      </HStack>
       <CodeBlock
         code={
           context

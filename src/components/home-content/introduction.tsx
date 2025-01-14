@@ -1,7 +1,8 @@
-import { VStack, Heading, Text } from "@chakra-ui/react";
+import { VStack, Text } from "@chakra-ui/react";
 
 import { FarcasterLink } from "@/components/farcaster-link";
 import { HighlightedText } from "@/components/highlight-text";
+import { Title } from "../ui/title";
 
 export const Introduction = () => {
   return (
@@ -10,17 +11,8 @@ export const Introduction = () => {
       align={{ base: "left", lg: "center" }}
       w="full"
       gap={4}
-      px={{ base: "30px", md: 8 }}
     >
-      <Heading
-        as="h1"
-        fontSize={{ base: "48px", md: "6xl" }}
-        fontWeight="bold"
-        textAlign="left"
-        lineHeight="shorter"
-      >
-        Introduction
-      </Heading>
+      <Title>Introduction</Title>
 
       <Text fontSize={{ base: "18px", md: "xl" }} textAlign="left">
         Frames launched as a way to build{" "}

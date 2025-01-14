@@ -1,6 +1,7 @@
 import { VStack, Heading, Text, Box } from "@chakra-ui/react";
 
 import { FarcasterLink } from "@/components/farcaster-link";
+import { Title } from "../ui/title";
 
 export const TipsAndTricks = () => {
   const tipsAndTricks = [
@@ -27,17 +28,8 @@ export const TipsAndTricks = () => {
       align={{ base: "left", lg: "center" }}
       w="full"
       gap={4}
-      px={{ base: "30px", md: 8 }}
     >
-      <Heading
-        as="h1"
-        fontSize={{ base: "48px", md: "6xl" }}
-        fontWeight="bold"
-        textAlign="left"
-        lineHeight="shorter"
-      >
-        Tips & Tricks
-      </Heading>
+      <Title>Tips & Tricks</Title>
 
       <Text fontSize={{ base: "18px", md: "xl" }} textAlign="left">
         Here's some tips and tricks to help you build your frames v2 app:

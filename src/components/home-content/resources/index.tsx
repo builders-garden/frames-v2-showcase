@@ -1,5 +1,5 @@
 import { LinkBox } from "@/components/ui/link";
-import { Subtitle } from "@/components/ui/title";
+import { Subtitle, Title } from "@/components/ui/title";
 import { Heading, VStack } from "@chakra-ui/react";
 import { resourcesData } from "./data";
 
@@ -10,17 +10,8 @@ export const Resources = () => {
       align={{ base: "left", lg: "center" }}
       w="full"
       gap="1.5rem"
-      px={{ base: "30px", md: 8 }}
     >
-      <Heading
-        as="h1"
-        fontSize={{ base: "48px", md: "6xl" }}
-        fontWeight="bold"
-        textAlign="left"
-        lineHeight="shorter"
-      >
-        Resources
-      </Heading>
+      <Title>Resources</Title>
       {resourcesData.map((resource) => (
         <VStack
           key={resource.category}

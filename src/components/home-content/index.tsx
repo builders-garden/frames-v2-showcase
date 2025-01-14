@@ -13,6 +13,7 @@ import { Link, LinkBox } from "../ui/link";
 import { Header, Subtitle, Title } from "../ui/title";
 import { Paragraph, ParagraphBig } from "../ui/paragraph";
 import { Separator } from "../ui/separator";
+import { Resources } from "./resources";
 
 export default function HomeContent() {
   const { context } = useFrameContext();
@@ -70,6 +71,7 @@ export default function HomeContent() {
         subtitle="Forkable NextJS example app"
         href="https://www.youtube.com/watch?v=xvFZjo5PgG0"
       />
+      <Resources />
     </VStack>
   );
 }

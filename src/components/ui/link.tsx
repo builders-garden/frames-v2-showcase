@@ -21,7 +21,7 @@ export const Link = React.forwardRef<HTMLAnchorElement, ChakraLinkProps>(
   },
 );
 
-interface LinkBoxProps extends ChakraLinkProps {
+export interface LinkBoxProps extends ChakraLinkProps {
   imgSrc: string;
   title: string;
   subtitle: string;
@@ -30,7 +30,17 @@ interface LinkBoxProps extends ChakraLinkProps {
 export const LinkBox = React.forwardRef<HTMLDivElement, LinkBoxProps>(
   function LinkBox({ imgSrc, title, subtitle, ...props }, ref) {
     return (
-      <Link {...props} textDecor={"none"} target="_blank" asChild>
+      <Link
+        textDecor={"none"}
+        target="_blank"
+        w="100%"
+        outline="none"
+        _hover={{
+          bg: "rgba(255, 255, 255, 0.05)",
+        }}
+        transition="background 0.1s ease-in-out"
+        {...props}
+      >
         <HStack
           w="100%"
           border="1px solid"
@@ -40,7 +50,7 @@ export const LinkBox = React.forwardRef<HTMLDivElement, LinkBoxProps>(
           ref={ref}
           gap="1rem"
         >
-          <Image src={imgSrc} alt={title} w="30px" h="30px" />
+          <Image src={imgSrc} alt={title} w="30px" h="auto" />
           <VStack align="start" gap="0.25rem">
             <Text fontWeight="semibold" fontSize="14px" color="white">
               {title}

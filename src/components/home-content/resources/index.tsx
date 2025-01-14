@@ -11,7 +11,7 @@ export const Resources = () => {
       w="full"
       gap="1.5rem"
     >
-      <Title>Resources</Title>
+      <Title id="resources-link">Resources</Title>
       {resourcesData.map((resource) => (
         <VStack
           key={resource.category}

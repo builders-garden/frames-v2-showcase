@@ -37,6 +37,7 @@ export const Subtitle = React.forwardRef<HTMLParagraphElement, HeadingProps>(
         as={"h3"}
         fontSize={"18px"}
         fontWeight="semibold"
+        color="white"
         {...props}
       />
     );

@@ -7,6 +7,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 
 import { Toaster } from "@/components/ui/toaster";
+import { Theme } from "@chakra-ui/react";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -31,7 +32,7 @@ export default async function RootLayout({
         className={`${poppins.className} antialiased size-full min-h-screen`}
       >
         <Providers session={session}>
-          {children}
+          <Theme appearance="dark">{children}</Theme>
           <Toaster />
         </Providers>
       </body>

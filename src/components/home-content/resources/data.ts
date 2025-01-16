@@ -5,7 +5,59 @@ interface Resource {
   links: LinkBoxProps[];
 }
 
+const borderRadiusFramesLogos = "0.25rem";
+
 export const resourcesData: Resource[] = [
+  {
+    category: "Live Frames",
+    links: [
+      {
+        imgSrc: "./links/yoink.avif",
+        title: "Yoink",
+        subtitle: "Click to yoink the flag!",
+        href: "https://yoink.party/framesV2",
+        imgProps: {
+          borderRadius: borderRadiusFramesLogos,
+        },
+      },
+      {
+        imgSrc: "./links/farville.png",
+        title: "FarVille",
+        subtitle: "Plant, grow and harvest crop with frens",
+        href: "https://farville.farm",
+        imgProps: {
+          borderRadius: borderRadiusFramesLogos,
+        },
+      },
+      {
+        imgSrc: "./links/framedl.png",
+        title: "Framedl",
+        subtitle: "Wordle in a frame",
+        href: "https://framedl.xyz",
+        imgProps: {
+          borderRadius: borderRadiusFramesLogos,
+        },
+      },
+      {
+        imgSrc: "./links/farcaster-royale.jpg",
+        title: "Farcaster Royale",
+        subtitle: "Battle royale game on Farcaster",
+        href: "https://fc-battles.vercel.app",
+        imgProps: {
+          borderRadius: borderRadiusFramesLogos,
+        },
+      },
+      {
+        imgSrc: "./links/bracket.avif",
+        title: "Bracket",
+        subtitle: "Sports betting platform",
+        href: "https://f.bracket.game",
+        imgProps: {
+          borderRadius: borderRadiusFramesLogos,
+        },
+      },
+    ],
+  },
   {
     category: "Example projects",
     links: [

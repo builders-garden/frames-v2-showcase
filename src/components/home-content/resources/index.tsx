@@ -30,6 +30,7 @@ export const Resources = () => {
               title={link.title}
               subtitle={link.subtitle}
               href={link.href}
+              imgProps={link.imgProps}
             />
           ))}
         </VStack>

@@ -2,10 +2,9 @@
 
 import { useCallback } from "react";
 import sdk from "@farcaster/frame-sdk";
-
 import { VStack } from "@chakra-ui/react";
 import { toaster } from "@/components/ui/toaster";
-import { Button } from "@/components/ui/button";
+import { PrimaryButton } from "@/components/ui/button";
 import { Paragraph } from "@/components/ui/paragraph";
 import CodeBlock from "@/components/ui/code-block";
 
@@ -52,8 +51,12 @@ export function ViewProfile({ fid }: { fid: number }) {
         <br />
         This will trigger a dialog on farcaster native client.
       </Paragraph>
-      <Button onClick={viewProfile}>View your profile</Button>
-      <CodeBlock language="typescript" code={codeBlock} />
+      <PrimaryButton onClick={viewProfile}>View your profile</PrimaryButton>
+      <CodeBlock
+        language="typescript"
+        title="ViewProfile.tsx"
+        code={codeBlock}
+      />
     </VStack>
   );
 }

@@ -2,10 +2,9 @@
 
 import { useCallback } from "react";
 import sdk, { AddFrame as AddFrameType } from "@farcaster/frame-sdk";
-
 import { VStack } from "@chakra-ui/react";
 import { toaster } from "@/components/ui/toaster";
-import { Button } from "@/components/ui/button";
+import { PrimaryButton } from "@/components/ui/button";
 import { Paragraph } from "@/components/ui/paragraph";
 import CodeBlock from "@/components/ui/code-block";
 
@@ -75,8 +74,8 @@ export function AddFrame() {
         When your frame loads, the parent Farcaster app provides it with context
         information, including the current user. Let's take a look at it.
       </Paragraph>
-      <Button onClick={addFrame}>Add this frame</Button>
-      <CodeBlock language="typescript" code={codeBlock} />
+      <PrimaryButton onClick={addFrame}>Add this frame</PrimaryButton>
+      <CodeBlock title="AddFrame.tsx" language="typescript" code={codeBlock} />
     </VStack>
   );
 }

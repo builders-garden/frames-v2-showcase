@@ -62,13 +62,14 @@ export function FarcasterContext({
             ? JSON.stringify(context, null, 2)
             : JSON.stringify(exampleContext, null, 2)
         }
+        title="sdk.context"
         language="json"
       />
       <Paragraph>
         If you load this site like a frames V2, you should see your own
         Farcaster user profile:
       </Paragraph>
-      <Alert title="Warning" icon={<LuBadgeAlert />}>
+      <Alert title="Warning" status="warning" icon={<LuBadgeAlert />}>
         Keep in mind that the context data is unauthenticated as it is, assume
         it is spoofable and don't use it to grant privileged access to the user!
       </Alert>

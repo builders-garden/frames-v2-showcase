@@ -5,7 +5,10 @@ import {
   VStack,
   Text,
 } from "@chakra-ui/react";
-import type { LinkProps as ChakraLinkProps } from "@chakra-ui/react";
+import type {
+  LinkProps as ChakraLinkProps,
+  ImageProps,
+} from "@chakra-ui/react";
 import * as React from "react";
 
 export const Link = React.forwardRef<HTMLAnchorElement, ChakraLinkProps>(
@@ -25,10 +28,11 @@ export interface LinkBoxProps extends ChakraLinkProps {
   imgSrc: string;
   title: string;
   subtitle: string;
+  imgProps?: ImageProps;
 }
 
 export const LinkBox = React.forwardRef<HTMLDivElement, LinkBoxProps>(
-  function LinkBox({ imgSrc, title, subtitle, ...props }, ref) {
+  function LinkBox({ imgSrc, title, subtitle, imgProps, ...props }, ref) {
     return (
       <Link
         textDecor={"none"}
@@ -45,12 +49,13 @@ export const LinkBox = React.forwardRef<HTMLDivElement, LinkBoxProps>(
           w="100%"
           border="1px solid"
           borderColor="rgba(255, 255, 255, 0.3)"
-          p={4}
+          px={4}
+          py={2.5}
           borderRadius="10px"
           ref={ref}
-          gap="1rem"
+          gap={4}
         >
-          <Image src={imgSrc} alt={title} w="30px" h="auto" />
+          <Image src={imgSrc} alt={title} w="30px" h="auto" {...imgProps} />
           <VStack align="start" gap="0.25rem">
             <Text fontWeight="semibold" fontSize="14px" color="white">
               {title}

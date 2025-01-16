@@ -33,7 +33,9 @@ export const MenuDesktop = () => {
                 //   id={`${subitem.value}-item`}
                 //   value={`${subitem.value}-link`}
                 // >
-                <MenuSubItem>{subitem.text}</MenuSubItem>
+                <MenuSubItem key={`${subIndex}-${subitem.value}`}>
+                  {subitem.text}
+                </MenuSubItem>
                 // </ChakraMenuItem>
               ))}
             </Box>

@@ -2,7 +2,7 @@
 
 This project demonstrates various implementations and use cases of Farcaster Frames v2, built with Next.js.
 
-## Getting Started 
+## Getting Started
 
 First, run the development server:
 

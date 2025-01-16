@@ -54,13 +54,13 @@ export function Features() {
     },
     {
       id: MenuLink.ShowFarcasterProfile,
-      title: "View Profile",
+      title: "Show Farcaster profile",
       Subtitle: "View the profile of a user",
       text: <ViewProfile fid={fid} />,
     },
     {
       id: MenuLink.Signature,
-      title: "Sign a message",
+      title: "Sign Message",
       Subtitle: "Create a signature through your wallet",
       text: (open: boolean) => <SignAMessage open={open} />,
     },
@@ -80,7 +80,7 @@ export function Features() {
     <VStack gap="1.5rem" width="100%" alignItems="flex-start">
       <Title id={getTitleId(MenuLink.Features)}>Features</Title>
       <Paragraph>
-        Try these interactive features to experience frames v2 potential
+        Try these interactive features to experience frames v2 potential!
       </Paragraph>
       <SupportedWallets />
       <AccordionRoot

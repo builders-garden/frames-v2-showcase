@@ -26,7 +26,7 @@ const codeBlock = `
 
     return (
       <button onClick={viewProfile}>
-        View profile
+        Show profile
       </button>
     );
   }

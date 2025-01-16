@@ -4,22 +4,21 @@ export async function GET() {
   const config = {
     accountAssociation: {
       header:
-        "eyJmaWQiOjI2MjgwMCwidHlwZSI6ImN1c3RvZHkiLCJrZXkiOiIweDEwN2IyYzM1MEEzRDMxZDUzYTFGNzY1ODU0NUU4ZEIxNTBEMGQ5RTQifQ",
-      payload:
-        "eyJkb21haW4iOiJzZXR0bGVkLWFsaXZlLWthdHlkaWQubmdyb2stZnJlZS5hcHAifQ",
+        "eyJmaWQiOjU2OTgsInR5cGUiOiJjdXN0b2R5Iiwia2V5IjoiMHg5Qzk1QjM1M2MxMDM5RTQzNUM5MTE1NzM3MjBhNGU2MmY4ZTBhYmNhIn0",
+      payload: "eyJkb21haW4iOiI5Y2JlLTIxMy0xODctMjMtMTQubmdyb2stZnJlZS5hcHAifQ",
       signature:
-        "MHgxYWY1NDY5ODBhNTAxNzFkOTZlYTE0NDhkY2Q2ZDBlNGM5Zjg0NDU2NjczZmI2MzQ1NmYwOWU0ODQxMzkxNzdmNmRiYjMxNjhhZDFmMDM5MzUwYzcwMmE3ODA2ZjkxNGNjZmM1ZTAyNWE1NDA5ZDFiYWZkMmEwZWViOWUzY2NhNzFi",
+        "MHhhOTA0YjBkNWZlOThhODExYjkxMzQwNDNlMzBkZmMyNjE2NzM2YzZkNGQ0Yzc3MzFiMTY5NGE0NDExODQ2YWJjNWZiM2Y1MjBmZDdhNTI0YTcxZWE2OGI2NTM5OTI4Yzg0OGRhNjNkYzViNDlhZmI1YmJiODI4MjJjM2U1ZjRkMzFj",
     },
     frame: {
       version: "1",
       name: "Farcaster FramesV2 Showcase",
-      iconUrl: "https://settled-alive-katydid.ngrok-free.app/icon.png",
-      homeUrl: "https://settled-alive-katydid.ngrok-free.app",
-      imageUrl: "https://settled-alive-katydid.ngrok-free.app/image.png",
-      buttonTitle: "FramesV2 Showcase",
-      splashImageUrl: "https://settled-alive-katydid.ngrok-free.app/splash.png",
-      splashBackgroundColor: "#eeccff",
-      webhookUrl: "https://settled-alive-katydid.ngrok-free.app/api/webhook",
+      iconUrl: `${appUrl}/icon.png`,
+      homeUrl: `${appUrl}`,
+      imageUrl: `${appUrl}/image.png`,
+      buttonTitle: `FramesV2 Showcase`,
+      splashImageUrl: `${appUrl}/splash.png`,
+      splashBackgroundColor: `#eeccff`,
+      webhookUrl: `${appUrl}/api/webhook`,
     },
   };
 

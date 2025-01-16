@@ -13,22 +13,12 @@ export async function POST(request: NextRequest) {
   const requestJson = await request.json();
   const requestBody = requestSchema.safeParse(requestJson);
 
-  console.log({
-    requestBody,
-  });
-
   if (requestBody.success === false) {
     return Response.json(
       { success: false, errors: requestBody.error.errors },
       { status: 400 },
     );
   }
-
-  // this should not be here!
-  // await createUser({
-  //   fid: requestBody.data.fid,
-  //   token: requestBody.data.notificationDetails.token,
-  // });
 
   console.log(
     `[api/send-notification|${new Date().toUTCString()}] Sending notification to fid ${requestBody.data.fid}`,

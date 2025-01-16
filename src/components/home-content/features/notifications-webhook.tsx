@@ -1,12 +1,11 @@
 "use client";
 
 import { Alert } from "@/components/ui/alert";
-import { Button } from "@/components/ui/button";
+import { PrimaryButton } from "@/components/ui/button";
 import { Paragraph } from "@/components/ui/paragraph";
 import { useFrameContext } from "@/hooks/frame-context";
 import { useUser } from "@/hooks/use-user";
 import { Code, VStack, Separator } from "@chakra-ui/react";
-import { FrameNotificationDetails } from "@farcaster/frame-sdk";
 import { useCallback, useState } from "react";
 
 const exampleContext = {
@@ -27,8 +26,6 @@ const exampleContext = {
 };
 
 export function NotificationsWebhook() {
-  const [notificationDetails, setNotificationDetails] =
-    useState<FrameNotificationDetails | null>(null);
   const [sendNotificationResult, setSendNotificationResult] = useState("");
   const [isSendingNotification, setIsSendingNotification] = useState(false);
 
@@ -76,7 +73,7 @@ export function NotificationsWebhook() {
     } catch (error) {
       setSendNotificationResult(`Error: ${error}`);
     }
-  }, [context, notificationDetails, isSDKLoaded]);
+  }, [context, isSDKLoaded, user, user?.token]);
 
   console.log({
     user: user,
@@ -133,7 +130,7 @@ export function NotificationsWebhook() {
             </div>
           )}
           <div className="mb-4 w-full">
-            <Button
+            <PrimaryButton
               loadingText="Sending..."
               onClick={sendNotification}
               disabled={!user || !user.token || !context || !isSDKLoaded}
@@ -141,7 +138,7 @@ export function NotificationsWebhook() {
               className="w-full"
             >
               Send notification
-            </Button>
+            </PrimaryButton>
           </div>
         </>
       )}

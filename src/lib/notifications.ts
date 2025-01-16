@@ -2,9 +2,10 @@ import {
   SendNotificationRequest,
   sendNotificationResponseSchema,
 } from "@farcaster/frame-sdk";
-import { getUserNotificationDetails } from "@/lib/kv";
+import { getUserByFid } from "./db";
 
 const appUrl = process.env.NEXT_PUBLIC_URL || "";
+const notificationUrl = "https://api.warpcast.com/v1/frame-notifications";
 
 type SendFrameNotificationResult =
   | {
@@ -24,12 +25,13 @@ export async function sendFrameNotification({
   title: string;
   body: string;
 }): Promise<SendFrameNotificationResult> {
-  const notificationDetails = await getUserNotificationDetails(fid);
-  if (!notificationDetails) {
+  const userNotificationDetails = await getUserByFid(fid);
+
+  if (!userNotificationDetails || !userNotificationDetails.token) {
     return { state: "no_token" };
   }
 
-  const response = await fetch(notificationDetails.url, {
+  const response = await fetch(notificationUrl, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -39,7 +41,7 @@ export async function sendFrameNotification({
       title,
       body,
       targetUrl: appUrl,
-      tokens: [notificationDetails.token],
+      tokens: [userNotificationDetails.token],
     } satisfies SendNotificationRequest),
   });
 

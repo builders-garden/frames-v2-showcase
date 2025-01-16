@@ -1,18 +1,21 @@
 import { z } from "zod";
 import { NextRequest } from "next/server";
-import { notificationDetailsSchema } from "@farcaster/frame-sdk";
 
-import { setUserNotificationDetails } from "@/lib/kv";
-import { sendFrameNotification } from "@/lib/farcaster";
+import { sendFrameNotification } from "@/lib/notifications";
 
 const requestSchema = z.object({
   fid: z.number(),
-  notificationDetails: notificationDetailsSchema,
+  title: z.string(),
+  text: z.string(),
 });
 
 export async function POST(request: NextRequest) {
   const requestJson = await request.json();
   const requestBody = requestSchema.safeParse(requestJson);
+
+  console.log({
+    requestBody,
+  });
 
   if (requestBody.success === false) {
     return Response.json(
@@ -21,16 +24,23 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  await setUserNotificationDetails(
-    requestBody.data.fid,
-    requestBody.data.notificationDetails,
-  );
+  // this should not be here!
+  // await createUser({
+  //   fid: requestBody.data.fid,
+  //   token: requestBody.data.notificationDetails.token,
+  // });
 
+  console.log(
+    `[api/send-notification|${new Date().toUTCString()}] Sending notification to fid ${requestBody.data.fid}`,
+  );
   const sendResult = await sendFrameNotification({
     fid: requestBody.data.fid,
-    title: "Test notification",
-    body: "Sent at " + new Date().toISOString(),
+    title: requestBody.data.title,
+    body: requestBody.data.text,
   });
+  console.log(
+    `[api/send-notification|${new Date().toUTCString()}] Send result: ${JSON.stringify(sendResult)}`,
+  );
 
   if (sendResult.state === "error") {
     return Response.json(

@@ -6,7 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "db:pull": "drizzle-kit pull",
+    "db:push": "drizzle-kit push",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
     "@chakra-ui/react": "^3.3.1",
@@ -15,9 +20,12 @@
     "@farcaster/frame-node": "^0.0.13",
     "@farcaster/frame-sdk": "^0.0.26",
     "@farcaster/frame-wagmi-connector": "^0.0.14",
+    "@libsql/client": "^0.14.0",
     "@t3-oss/env-nextjs": "^0.11.1",
     "@tanstack/react-query": "^5.64.1",
     "@upstash/redis": "^1.34.3",
+    "dotenv": "^16.4.7",
+    "drizzle-orm": "^0.38.3",
     "ethers": "^6.13.5",
     "next": "15.1.4",
     "next-auth": "4.24.11",
@@ -33,8 +41,10 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/react-syntax-highlighter": "^15.5.13",
+    "drizzle-kit": "^0.30.1",
     "prettier": "3.4.2",
     "react-syntax-highlighter": "^15.6.1",
+    "tsx": "^4.19.2",
     "typescript": "^5"
   }
 }

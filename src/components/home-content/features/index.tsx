@@ -14,6 +14,7 @@ import { getTitleId, MenuLink } from "../menu/data";
 import { ViewProfile } from "./view-profile";
 import { SignAMessage } from "./sign-a-message";
 import { useState } from "react";
+import { NotificationsWebhook } from "./notifications-webhook";
 
 export function Features() {
   const { context, isSDKLoaded } = useFrameContext();
@@ -31,8 +32,14 @@ export function Features() {
     {
       id: MenuLink.AddFrame,
       title: "Add Frame",
-      Subtitle: "Add a frame to the client (warpcast)",
+      Subtitle: "Add a frame to the client (warpcast).",
       text: <AddFrame />,
+    },
+    {
+      id: MenuLink.NotificationsAndWebhook,
+      title: "Notifications & Webhook",
+      Subtitle: "Send notifications directly to the users.",
+      text: <NotificationsWebhook />,
     },
     {
       id: MenuLink.ViewProfile,
@@ -68,7 +75,7 @@ export function Features() {
           <AccordionItem key={item.id} value={item.id}>
             <AccordionItemTrigger>
               <Stack gap="1">
-                <Subtitle color="primary" id={getTitleId(item.id)}>
+                <Subtitle color="primary" id={getTitleId(item.id!)}>
                   {item.title}
                 </Subtitle>
                 <Text fontSize="sm" color="fg.muted">

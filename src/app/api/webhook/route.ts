@@ -1,18 +1,18 @@
-import { NextRequest } from "next/server";
+import { createUser, getUserByFid, updateUserByFid } from "@/lib/db";
+import { sendFrameNotification } from "@/lib/notifications";
 import {
   ParseWebhookEvent,
   parseWebhookEvent,
   verifyAppKeyWithNeynar,
 } from "@farcaster/frame-node";
-
-import {
-  deleteUserNotificationDetails,
-  setUserNotificationDetails,
-} from "@/lib/kv";
-import { sendFrameNotification } from "@/lib/farcaster";
+import { NextRequest } from "next/server";
 
 export async function POST(request: NextRequest) {
   const requestJson = await request.json();
+
+  console.log(
+    `[webhook|${new Date().toUTCString()}] requestJson: ${JSON.stringify(requestJson)}`,
+  );
 
   let data;
   try {
@@ -46,36 +46,54 @@ export async function POST(request: NextRequest) {
   const fid = data.fid;
   const event = data.event;
 
+  console.log(
+    `[webhook|${new Date().toUTCString()}] fid: ${fid}, event: ${JSON.stringify(event)}`,
+  );
+
   switch (event.event) {
     case "frame_added":
       if (event.notificationDetails) {
-        await setUserNotificationDetails(fid, event.notificationDetails);
+        const user = await getUserByFid(fid);
+        if (!user) {
+          await createUser({
+            fid,
+            token: event.notificationDetails.token,
+          });
+        } else {
+          await updateUserByFid(fid, {
+            token: event.notificationDetails.token,
+          });
+        }
         await sendFrameNotification({
           fid,
-          title: "Welcome to Frames v2",
-          body: "Frame is now added to your client",
+          title: "FrameV2 Showcase added 💜",
+          body: "You will receive notifications when the docs will be updated",
         });
       } else {
-        await deleteUserNotificationDetails(fid);
+        await updateUserByFid(fid, {
+          token: null,
+        });
       }
-
       break;
     case "frame_removed":
-      await deleteUserNotificationDetails(fid);
-
+      await updateUserByFid(fid, {
+        token: null,
+      });
       break;
     case "notifications_enabled":
-      await setUserNotificationDetails(fid, event.notificationDetails);
+      await updateUserByFid(fid, {
+        token: event.notificationDetails.token,
+      });
       await sendFrameNotification({
         fid,
-        title: "Ding ding ding",
-        body: "Notifications are now enabled",
+        title: "gm Farcaster Fren 💜",
+        body: "Notifications for Farcaster FramesV2 Showcase are now enabled",
       });
-
       break;
     case "notifications_disabled":
-      await deleteUserNotificationDetails(fid);
-
+      await updateUserByFid(fid, {
+        token: null,
+      });
       break;
   }
 

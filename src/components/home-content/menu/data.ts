@@ -13,12 +13,15 @@ export enum MenuLink {
   SendTransaction = "send-transaction",
   NotificationsAndWebhook = "notifications-&-webhook",
   Signature = "signature",
-  SupportedWallets = "supported-wallets",
-  TipAndTricks = "tip-&-tricks",
+  TipsAndTricks = "tips-&-tricks",
   HowTo = "how-to",
-  Debug = "debug",
-  ConvertExistingProjects = "convert-existing-projects",
   Resources = "resources",
+  LiveFrames = "live-frames",
+  ExampleProjects = "example-projects",
+  Videos = "videos",
+  Reference = "reference",
+  Tools = "tools",
+  Learning = "learning",
 }
 
 export const menuItems = [
@@ -28,33 +31,33 @@ export const menuItems = [
     text: "Features",
     value: MenuLink.Features,
     subitems: [
-      { text: "Supported Wallets", value: MenuLink.SupportedWallets },
       { text: "Farcaster Context", value: MenuLink.FarcasterContext },
-      { text: "Auth", value: MenuLink.Auth },
-      { text: "Add frame", value: MenuLink.AddFrame },
+      { text: "Auth (SIWF)", value: MenuLink.Auth },
+      { text: "Add Frame", value: MenuLink.AddFrame },
       {
         text: "Notifications & Webhook",
         value: MenuLink.NotificationsAndWebhook,
       },
       { text: "Show Farcaster profile", value: MenuLink.ShowFarcasterProfile },
-      { text: "Signature", value: MenuLink.Signature },
+      { text: "Sign Message", value: MenuLink.Signature },
       { text: "Send Transaction", value: MenuLink.SendTransaction },
     ],
   },
-  { text: "Tip & Tricks", value: MenuLink.TipAndTricks },
+  { text: "Tips & Tricks", value: MenuLink.TipsAndTricks },
   {
     text: "How to",
     value: MenuLink.HowTo,
+  },
+  {
+    text: "Resources",
+    value: MenuLink.Resources,
     subitems: [
-      {
-        text: "Debug",
-        value: MenuLink.Debug,
-      },
-      {
-        text: "Convert existing projects",
-        value: MenuLink.ConvertExistingProjects,
-      },
+      { text: "Live Frames", value: MenuLink.LiveFrames },
+      { text: "Example Projects", value: MenuLink.ExampleProjects },
+      { text: "Videos", value: MenuLink.Videos },
+      { text: "Reference", value: MenuLink.Reference },
+      { text: "Tools", value: MenuLink.Tools },
+      { text: "Learning", value: MenuLink.Learning },
     ],
   },
-  { text: "Resources", value: MenuLink.Resources },
 ];

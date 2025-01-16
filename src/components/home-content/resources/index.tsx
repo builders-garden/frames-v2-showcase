@@ -1,6 +1,6 @@
 import { LinkBox } from "@/components/ui/link";
 import { Subtitle, Title } from "@/components/ui/title";
-import { Heading, VStack } from "@chakra-ui/react";
+import { VStack } from "@chakra-ui/react";
 import { resourcesData } from "./data";
 import { getTitleId, MenuLink } from "../menu/data";
 
@@ -19,6 +19,7 @@ export const Resources = () => {
           gap="1.125rem"
           w="100%"
           alignItems="flex-start"
+          id={getTitleId(resource.id)}
         >
           <Subtitle fontSize={{ base: "18px", md: "xl" }} textAlign="left">
             {resource.category}

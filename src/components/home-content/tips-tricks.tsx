@@ -162,7 +162,7 @@ export const TipsAndTricks = () => {
       w="full"
       gap={"1.3rem"}
     >
-      <Title id={getTitleId(MenuLink.TipAndTricks)}>Tips & Tricks</Title>
+      <Title id={getTitleId(MenuLink.TipsAndTricks)}>Tips & Tricks</Title>
 
       <Paragraph>
         Here's some tips and tricks to help you build your frames v2 app:

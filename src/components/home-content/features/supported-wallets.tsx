@@ -12,10 +12,10 @@ export const SupportedWallets = () => {
     },
   ];
   return (
-    <VStack width="100%" alignItems="flex-start" id={MenuLink.SupportedWallets}>
+    <VStack width="100%" alignItems="flex-start">
       <Subtitle>Supported Wallets</Subtitle>
       <Paragraph>Warpcast supports the following wallets:</Paragraph>
-      <HStack>
+      <HStack gap="1rem">
         {supportedWallets.map((wallet) => (
           <HStack key={wallet.name}>
             {wallet.icon}

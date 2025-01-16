@@ -1,8 +1,10 @@
 import { LinkBoxProps } from "@/components/ui/link";
+import { MenuLink } from "../menu/data";
 
 interface Resource {
   category: string;
   links: LinkBoxProps[];
+  id: MenuLink;
 }
 
 const borderRadiusFramesLogos = "0.25rem";
@@ -10,6 +12,7 @@ const borderRadiusFramesLogos = "0.25rem";
 export const resourcesData: Resource[] = [
   {
     category: "Live Frames",
+    id: MenuLink.LiveFrames,
     links: [
       {
         imgSrc: "./links/yoink.avif",
@@ -60,6 +63,7 @@ export const resourcesData: Resource[] = [
   },
   {
     category: "Example projects",
+    id: MenuLink.ExampleProjects,
     links: [
       {
         imgSrc: "./links/github.svg",
@@ -83,6 +87,7 @@ export const resourcesData: Resource[] = [
   },
   {
     category: "Videos",
+    id: MenuLink.Videos,
     links: [
       {
         imgSrc: "./links/youtube.svg",
@@ -106,6 +111,7 @@ export const resourcesData: Resource[] = [
   },
   {
     category: "Reference",
+    id: MenuLink.Reference,
     links: [
       {
         imgSrc: "./links/farcaster.svg",
@@ -117,6 +123,7 @@ export const resourcesData: Resource[] = [
   },
   {
     category: "Tools",
+    id: MenuLink.Tools,
     links: [
       {
         imgSrc: "./links/warpcast.svg",
@@ -134,6 +141,7 @@ export const resourcesData: Resource[] = [
   },
   {
     category: "Learning",
+    id: MenuLink.Learning,
     links: [
       {
         imgSrc: "./links/warpcast.svg",

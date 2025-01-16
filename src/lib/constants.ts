@@ -11,7 +11,7 @@ export const AppInfo = {
 
 export const FRAME_METADATA = {
   version: "next",
-  imageUrl: `${env.NEXT_PUBLIC_URL}/opengraph-image`,
+  imageUrl: `${env.NEXT_PUBLIC_URL}/opengraph-image.png`,
   button: {
     title: "Speedrun frames v2 ✨",
     action: {

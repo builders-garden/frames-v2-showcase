@@ -19,6 +19,9 @@ import {
 import { Paragraph } from "@/components/ui/paragraph";
 import CodeBlock from "@/components/ui/code-block";
 import { FarcasterUserBulkResponse, NeynarUser } from "@/lib/types";
+import { FarcasterLink } from "@/components/farcaster-link";
+import { useFrameContext } from "@/hooks/frame-context";
+import { Alert } from "@/components/ui/alert";
 
 const codeBlock = `
   import { useCallback } from "react";
@@ -110,6 +113,8 @@ export function ViewProfile({ userFid }: { userFid: number }) {
   const [isSearching, setIsSearching] = useState<boolean>(false);
   const [farcasterUsers, setFarcasterUsers] = useState<NeynarUser[]>([]);
 
+  const { context } = useFrameContext();
+
   const handleSearch = async () => {
     setIsSearching(true);
     try {
@@ -155,32 +160,54 @@ export function ViewProfile({ userFid }: { userFid: number }) {
         <br />
         This will trigger a dialog on farcaster native client.
       </Paragraph>
-      <PrimaryButton onClick={() => viewProfile(userFid)}>
-        View your profile
-      </PrimaryButton>
-      <VStack gap="0.5rem" w={{ base: "full", md: "50%", lg: "30%" }}>
-        <HStack w="full">
-          <Input
-            w="full"
-            placeholder="Search Farcaster users"
-            variant="subtle"
-            value={searchInput}
-            onChange={(e) => setSearchInput(e.target.value)}
-          />
-          <PrimaryButton
-            onClick={handleSearch}
-            loading={isSearching}
-            w="25%"
-            size="sm"
-          >
-            {isSearching ? "Searching..." : "Search"}
+
+      {context ? (
+        <>
+          <PrimaryButton onClick={() => viewProfile(userFid)}>
+            View your profile
           </PrimaryButton>
-        </HStack>
-        {farcasterUsers.length > 0 && (
-          <FarcasterSelect users={farcasterUsers} onSelectUser={viewProfile} />
-        )}
-      </VStack>
+          <VStack gap="0.5rem" w={{ base: "full", md: "50%", lg: "30%" }}>
+            <HStack w="full">
+              <Input
+                w="full"
+                placeholder="Search Farcaster users"
+                variant="subtle"
+                value={searchInput}
+                onChange={(e) => setSearchInput(e.target.value)}
+              />
+              <PrimaryButton
+                onClick={handleSearch}
+                loading={isSearching}
+                w="25%"
+                size="sm"
+              >
+                {isSearching ? "Searching..." : "Search"}
+              </PrimaryButton>
+            </HStack>
+            {farcasterUsers.length > 0 && (
+              <FarcasterSelect
+                users={farcasterUsers}
+                onSelectUser={viewProfile}
+              />
+            )}
+          </VStack>
+        </>
+      ) : (
+        <Alert
+          title="gm gm, you could view some cool profiles from the frame 👀"
+          status="info"
+        >
+          If you load this site like a frames V2, you could search for a user by
+          his username and view his profile preview.
+        </Alert>
+      )}
+
       <CodeBlock language="typescript" title="View Profile" code={codeBlock} />
+      <FarcasterLink
+        link="https://docs.farcaster.xyz/developers/frames/v2/spec#feature-social"
+        text="Learn more about the view profile here"
+        fontSize="xs"
+      />
     </VStack>
   );
 }

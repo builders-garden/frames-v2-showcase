@@ -156,6 +156,7 @@ export const TipsAndTricks = () => {
           align="left"
           w={{ base: "100%", md: "70%" }}
           lineHeight={{ base: "normal", md: 1.7 }}
+          mb={4}
         >
           <Paragraph>
             For your first frame v2, why not try to convert an existing web app
@@ -172,6 +173,10 @@ export const TipsAndTricks = () => {
           />
         </VStack>
       ),
+      link: {
+        title: "Convert your Web App into a Frame",
+        link: "https://www.youtube.com/watch?v=9Dc64u8JTu0",
+      },
     },
   ];
   return (

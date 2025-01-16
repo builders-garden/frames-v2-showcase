@@ -18,6 +18,7 @@ import { useState } from "react";
 import { NotificationsWebhook } from "./notifications-webhook";
 import { SendTransaction } from "./send-transaction";
 import { SupportedWallets } from "./supported-wallets";
+import { FeatureAuth } from "./auth";
 
 export function Features() {
   const { context, isSDKLoaded } = useFrameContext();
@@ -31,6 +32,13 @@ export function Features() {
       Subtitle:
         "The Farcaster app provides the context information (including the current user)",
       text: <FarcasterContext context={context} isSDKLoaded />,
+    },
+    {
+      id: MenuLink.Auth,
+      title: "Auth (SIWF)",
+      Subtitle:
+        "Allow users to sign into frames using their Farcaster identity.",
+      text: <FeatureAuth />,
     },
     {
       id: MenuLink.AddFrame,

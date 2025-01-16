@@ -1,5 +1,6 @@
 "use client";
 
+import { FarcasterLink } from "@/components/farcaster-link";
 import { Alert } from "@/components/ui/alert";
 import { PrimaryButton } from "@/components/ui/button";
 import { Paragraph } from "@/components/ui/paragraph";
@@ -142,6 +143,11 @@ export function NotificationsWebhook() {
           </div>
         </>
       )}
+      <FarcasterLink
+        link="https://docs.farcaster.xyz/developers/frames/v2/notifications_webhooks"
+        text="Learn more about the Notifications & Webhook feature here"
+        fontSize="xs"
+      />
     </VStack>
   );
 }

@@ -1,3 +1,4 @@
+import { FarcasterLink } from "@/components/farcaster-link";
 import { Alert } from "@/components/ui/alert";
 import { Avatar } from "@/components/ui/avatar";
 import CodeBlock from "@/components/ui/code-block";
@@ -73,6 +74,11 @@ export function FarcasterContext({
         Keep in mind that the context data is unauthenticated as it is, assume
         it is spoofable and don't use it to grant privileged access to the user!
       </Alert>
+      <FarcasterLink
+        link="https://docs.farcaster.xyz/developers/frames/v2/getting-started#viewing-context"
+        text="Learn more about the context here"
+        fontSize="xs"
+      />
     </VStack>
   );
 }

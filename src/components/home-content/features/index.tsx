@@ -8,14 +8,16 @@ import {
   AccordionItemTrigger,
   AccordionRoot,
 } from "@/components/ui/accordion";
+import { getTitleId, MenuLink } from "../menu/data";
+
 import { FarcasterContext } from "./farcaster-context";
 import { AddFrame } from "./add-frame";
-import { getTitleId, MenuLink } from "../menu/data";
 import { ViewProfile } from "./view-profile";
 import { SignAMessage } from "./sign-a-message";
 import { useState } from "react";
 import { NotificationsWebhook } from "./notifications-webhook";
 import { SendTransaction } from "./send-transaction";
+import { SupportedWallets } from "./supported-wallets";
 
 export function Features() {
   const { context, isSDKLoaded } = useFrameContext();
@@ -72,6 +74,7 @@ export function Features() {
       <Paragraph>
         Try these interactive features to experience frames v2 potential
       </Paragraph>
+      <SupportedWallets />
       <AccordionRoot
         collapsible
         multiple

@@ -8,6 +8,8 @@ export const env = createEnv({
     NEXTAUTH_SECRET: z.string(),
     TURSO_DATABASE_URL: z.string().url(),
     TURSO_AUTH_TOKEN: z.string(),
+    NEYNAR_BASE_URL: z.string().url(),
+    NEYNAR_API_KEY: z.string(),
   },
   client: {
     NEXT_PUBLIC_URL: z.string().url(),
@@ -19,5 +21,7 @@ export const env = createEnv({
     NEXT_PUBLIC_URL: process.env.NEXT_PUBLIC_URL,
     TURSO_DATABASE_URL: process.env.TURSO_DATABASE_URL,
     TURSO_AUTH_TOKEN: process.env.TURSO_AUTH_TOKEN,
+    NEYNAR_BASE_URL: process.env.NEYNAR_BASE_URL,
+    NEYNAR_API_KEY: process.env.NEYNAR_API_KEY,
   },
 });

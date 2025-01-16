@@ -73,6 +73,18 @@ export const resourcesData: Resource[] = [
       },
       {
         imgSrc: "./links/github.svg",
+        title: "Frames v2 Starter (by limone.eth)",
+        subtitle: "A simple starter to kickstart your project",
+        href: "https://github.com/builders-garden/frames-v2-starter",
+      },
+      {
+        imgSrc: "./links/github.svg",
+        title: "Frames v2 Starter (by stephancill)",
+        subtitle: "A simple starter to kickstart your project",
+        href: "https://github.com/stephancill/frames-v2-template",
+      },
+      {
+        imgSrc: "./links/github.svg",
         title: "Swap Demo",
         subtitle: "A simple token swap frame",
         href: "https://github.com/horsefacts/frames-v2-swap-demo",

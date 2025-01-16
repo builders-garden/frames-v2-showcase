@@ -14,7 +14,6 @@ export enum MenuLink {
   NotificationsAndWebhook = "notifications-&-webhook",
   Signature = "signature",
   TipsAndTricks = "tips-&-tricks",
-  HowTo = "how-to",
   Resources = "resources",
   LiveFrames = "live-frames",
   ExampleProjects = "example-projects",
@@ -44,10 +43,6 @@ export const menuItems = [
     ],
   },
   { text: "Tips & Tricks", value: MenuLink.TipsAndTricks },
-  {
-    text: "How to",
-    value: MenuLink.HowTo,
-  },
   {
     text: "Resources",
     value: MenuLink.Resources,

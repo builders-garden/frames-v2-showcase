@@ -38,7 +38,7 @@ export const FarcasterLink = ({
     <Box w="full" display="flex" alignItems="flex-start">
       {context ? (
         <Text
-          fontSize={{ base: fontSize, lg: "lg" }}
+          fontSize={{ base: fontSize, lg: "md" }}
           textAlign={textAlign}
           onClick={openWarpcastUrl}
           color={color}
@@ -56,7 +56,7 @@ export const FarcasterLink = ({
         <Link
           href={link}
           target={target}
-          fontSize={{ base: fontSize, lg: "lg" }}
+          fontSize={{ base: fontSize, lg: "md" }}
           textAlign="left"
           color={color}
           textDecoration="underline"

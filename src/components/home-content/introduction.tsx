@@ -10,15 +10,23 @@ export const Introduction = () => {
     <VStack justify="center" alignItems="flex-start" w="full" gap={"2rem"}>
       <Title id={getTitleId(MenuLink.Introduction)}>Introduction</Title>
 
-      <Stack w="full" direction={{ base: "column", md: "row" }} gap="2rem">
-        <VStack w="100%" gap="1.5rem" alignItems="flex-start">
-          <VStack w="100%" alignItems="flex-start" gap="0.25rem">
+      <Stack
+        w="full"
+        direction={{ base: "column", md: "row" }}
+        gap={{ base: "2rem", md: "5rem" }}
+      >
+        <VStack
+          w={{ base: "100%", md: "30%" }}
+          gap="1.5rem"
+          alignItems="flex-start"
+        >
+          <VStack w="fit-content" alignItems="flex-start" gap="0.25rem">
             <Paragraph fontStyle="italic" color="white">
               The beginning
             </Paragraph>
             <Subtitle fontSize="24px">Frames v1</Subtitle>
           </VStack>
-          <Paragraph lineHeight={1.7}>
+          <Paragraph lineHeight={1.7} w={{ base: "100%", md: "100%" }}>
             Launched as a way to build{" "}
             <HighlightedText>interactive apps</HighlightedText> that run
             directly in a{" "}
@@ -26,21 +34,31 @@ export const Introduction = () => {
           </Paragraph>
           <Image
             src="./screens/intro-frames-v1.svg"
-            w="100%"
-            mt={{ base: 0, md: "1.5rem" }}
+            mt={{ base: 0, md: "1.25rem" }}
           />
         </VStack>
 
-        <Image src="./assets/curvy-arrow.svg" w="2rem" mx="auto" />
+        <Image
+          src="./assets/curvy-arrow.svg"
+          w={{ base: "2rem", md: "2rem" }}
+          h="fit-content"
+          transform={{ base: "none", md: "rotate(270deg)" }}
+          mx={{ base: "auto", md: 0 }}
+          mt={{ base: 0 }}
+        />
 
-        <VStack w="100%" gap="1.5rem" alignItems="flex-start">
+        <VStack
+          w={{ base: "100%", md: "30%" }}
+          gap="1.5rem"
+          alignItems="flex-start"
+        >
           <VStack w="100%" alignItems="flex-start" gap="0.25rem">
             <Paragraph fontStyle="italic" color="white">
               While now...
             </Paragraph>
             <Subtitle fontSize="24px">Frames v2</Subtitle>
           </VStack>
-          <Paragraph lineHeight={1.7}>
+          <Paragraph lineHeight={1.7} w={{ base: "100%", md: "100%" }}>
             A <HighlightedText>new frame standard</HighlightedText> to enable
             richer applications
           </Paragraph>
@@ -48,13 +66,23 @@ export const Introduction = () => {
             link="https://docs.farcaster.xyz/developers/frames/v2/"
             text="Full introduction to Frames v2"
           />
-          <Image src="./screens/intro-frames-v2.svg" w="100%" />
+          <Image src="./screens/intro-frames-v2.svg" />
         </VStack>
       </Stack>
 
-      <Image src="./assets/curvy-arrow.svg" w="2rem" mx="auto" />
+      <Image
+        src="./assets/curvy-arrow.svg"
+        w="2rem"
+        mx="auto"
+        display={{ base: "block", md: "none" }}
+      />
 
-      <VStack w="100%" gap="1.5rem" alignItems="flex-start">
+      <VStack
+        w="100%"
+        gap="1.5rem"
+        alignItems="flex-start"
+        mt={{ base: "0", md: "2rem" }}
+      >
         <VStack w="100%" alignItems="flex-start" gap="0.25rem">
           <Paragraph fontStyle="italic" color="white">
             And beyond...

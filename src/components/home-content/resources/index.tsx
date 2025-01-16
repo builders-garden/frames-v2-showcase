@@ -8,9 +8,9 @@ export const Resources = () => {
   return (
     <VStack
       justify="center"
-      align={{ base: "left", lg: "center" }}
-      w="full"
-      gap="1.5rem"
+      align="left"
+      w={{ base: "full", md: "50%" }}
+      gap="3rem"
     >
       <Title id={getTitleId(MenuLink.Resources)}>Resources</Title>
       {resourcesData.map((resource) => (

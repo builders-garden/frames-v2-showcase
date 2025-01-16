@@ -27,8 +27,7 @@ export const SupportedWallets = () => {
         </HStack>
       </VStack>
       <Alert title={`Warning`} status="warning">
-        Currently, Warpcast doesn't support Rainbow Wallet for operations on
-        Base Sepolia.
+        Currently, Rainbow Wallet doesn't support Base Sepolia.
       </Alert>
     </VStack>
   );

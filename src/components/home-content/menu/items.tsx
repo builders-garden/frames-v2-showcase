@@ -1,11 +1,11 @@
-import { MenuItemProps } from "@chakra-ui/react";
-import { MenuItem as ChakraMenuItem } from "@/components/ui/menu";
+import { TextProps } from "@chakra-ui/react";
 import { Subtitle } from "@/components/ui/title";
 import { Paragraph } from "@/components/ui/paragraph";
 
-export const MenuItem: React.FC<MenuItemProps> = ({ children, ...props }) => {
+export const MenuItem: React.FC<TextProps> = ({ children, ...props }) => {
   return (
-    <ChakraMenuItem
+    <Subtitle
+      lineHeight={1.2}
       p="0"
       py="0.5rem"
       bg="transparent"
@@ -13,17 +13,15 @@ export const MenuItem: React.FC<MenuItemProps> = ({ children, ...props }) => {
       transition="all 0.2s ease"
       {...props}
     >
-      <Subtitle lineHeight={1.2}>{children}</Subtitle>
-    </ChakraMenuItem>
+      {children}
+    </Subtitle>
   );
 };
 
-export const MenuSubItem: React.FC<MenuItemProps> = ({
-  children,
-  ...props
-}) => {
+export const MenuSubItem: React.FC<TextProps> = ({ children, ...props }) => {
   return (
-    <ChakraMenuItem
+    <Paragraph
+      lineHeight={1.2}
       p="0"
       py="0.45rem"
       ml="1.25rem"
@@ -33,7 +31,7 @@ export const MenuSubItem: React.FC<MenuItemProps> = ({
       transition="all 0.2s ease"
       {...props}
     >
-      <Paragraph lineHeight={1.2}>{children}</Paragraph>
-    </ChakraMenuItem>
+      {children}
+    </Paragraph>
   );
 };

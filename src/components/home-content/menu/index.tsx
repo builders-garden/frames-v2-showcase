@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { MenuContent, MenuRoot, MenuTrigger } from "@/components/ui/menu";
-import { Box } from "@chakra-ui/react";
+import { Box, MenuItem as ChakraMenuItem } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { IoIosMenu } from "react-icons/io";
 import { IoClose } from "react-icons/io5";
@@ -71,22 +71,24 @@ export const HomeMenu = () => {
         >
           {menuItems.map((item, index) => (
             <Box key={index} mb={item.subitems ? "0.5rem" : "0"}>
-              <MenuItem
+              <ChakraMenuItem
                 id={`${item.value}-item`}
                 value={getTitleId(item.value)}
+                asChild
               >
-                {item.text}
-              </MenuItem>
+                <MenuItem>{item.text}</MenuItem>
+              </ChakraMenuItem>
               {item.subitems && (
                 <Box>
                   {item.subitems.map((subitem, subIndex) => (
-                    <MenuSubItem
+                    <ChakraMenuItem
+                      asChild
                       key={subIndex}
                       id={`${subitem.value}-item`}
                       value={`${subitem.value}-link`}
                     >
-                      {subitem.text}
-                    </MenuSubItem>
+                      <MenuSubItem>{subitem.text}</MenuSubItem>
+                    </ChakraMenuItem>
                   ))}
                 </Box>
               )}

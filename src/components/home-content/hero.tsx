@@ -9,7 +9,15 @@ export const Hero = () => {
       w="full"
       display="flex"
       bgImage="linear-gradient(#6944BA8F, #160A2FB2)"
-      borderBottom="2px solid #6944BA"
+      border={{
+        base: "none",
+        md: "1px solid #6944BA",
+      }}
+      borderBottom="1px solid #6944BA"
+      borderRadius={{
+        base: "none",
+        md: "2.5rem",
+      }}
     >
       <Stack
         w="full"
@@ -17,31 +25,43 @@ export const Hero = () => {
         justifyContent="center"
         direction={{ base: "column", md: "row" }}
         bgImage="radial-gradient(circle at 50% 0%, #8653F5 0%, #4E308F00 40%)"
+        gap={{
+          base: "2.5rem",
+          md: "0",
+        }}
+        px="30px"
+        pt={{ base: "3rem", md: "0" }}
       >
         <VStack
-          w="full"
+          w={"full"}
           justify="center"
           align={{ base: "left", lg: "center" }}
-          gap={4}
-          px={{ base: "30px", md: 8 }}
-          py={{ base: "10", md: "10" }}
+          gap={{ base: 4, md: "4rem" }}
+          justifyContent={{ base: "center", md: "space-between" }}
+          py={{
+            base: "0",
+            md: "8rem",
+          }}
         >
-          <Heading
-            as="h1"
-            fontSize={{ base: "48px", md: "6xl" }}
-            fontWeight="bold"
-            textAlign="left"
-            lineHeight="shorter"
-            w="full"
-          >
-            Speedrun
-            <br />
-            Frames V2
-          </Heading>
-
-          <Text w="full" fontSize={{ base: "18px", md: "xl" }} textAlign="left">
-            A practical guide to understand and start building Frames v2.
-          </Text>
+          <VStack w="full" alignItems="flex-start">
+            <Heading
+              as="h1"
+              fontSize={{ base: "48px", md: "5xl" }}
+              fontWeight="bold"
+              textAlign="left"
+              lineHeight="shorter"
+              w="full"
+            >
+              Speedrun Frames V2
+            </Heading>
+            <Text
+              w={{ base: "full", md: "80%" }}
+              fontSize={{ base: "18px", md: "xl" }}
+              textAlign="left"
+            >
+              A practical guide to understand and start building Frames v2.
+            </Text>
+          </VStack>
 
           <HStack
             gap="1rem"
@@ -68,12 +88,16 @@ export const Hero = () => {
           </HStack>
         </VStack>
         <Box
-          w="full"
+          w={{ base: "full", md: "50%" }}
           display="flex"
-          justifyContent="center"
+          justifyContent={{ base: "center", md: "flex-end" }}
           borderRadius="10px"
           minHeight={{ base: "500px" }}
-          py={{ base: "10", md: "10" }}
+          pb={{ base: "4rem", md: "2rem" }}
+          pt={{
+            base: "0",
+            md: "2rem",
+          }}
         >
           <video
             width="100%"

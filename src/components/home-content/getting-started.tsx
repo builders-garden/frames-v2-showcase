@@ -3,21 +3,22 @@ import { VStack, Heading, Text, Box } from "@chakra-ui/react";
 import { FarcasterLink } from "@/components/farcaster-link";
 import { Title } from "../ui/title";
 import { getTitleId, MenuLink } from "./menu/data";
+import { Paragraph } from "../ui/paragraph";
 
 export const GettingStarted = () => {
   return (
     <VStack
       justify="center"
-      align={{ base: "left", lg: "center" }}
+      align={{ base: "left", md: "flex-start" }}
       w="full"
       gap={"3rem"}
     >
-      <VStack gap={"1.5rem"} w="full" align={{ base: "left", lg: "center" }}>
+      <VStack gap={"1.5rem"} w="full" align="left">
         <Title id={getTitleId(MenuLink.GettingStarted)}>Getting Started</Title>
 
-        <Text fontSize={{ base: "18px", md: "xl" }} textAlign="left">
+        <Paragraph textAlign="left">
           Here's a full walkthrough of creating a frames v2 app:
-        </Text>
+        </Paragraph>
 
         <FarcasterLink
           link="https://docs.farcaster.xyz/developers/frames/v2/"
@@ -26,10 +27,10 @@ export const GettingStarted = () => {
       </VStack>
 
       <Box
-        w="full"
-        minH={{ base: "200px", lg: "50vh" }}
+        w={{ base: "full", md: "65%" }}
+        minH={{ base: "200px", lg: "40vh" }}
         display="flex"
-        justifyContent="center"
+        justifyContent={{ base: "center" }}
       >
         <iframe
           width="100%"

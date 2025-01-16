@@ -42,7 +42,7 @@ export const TipsAndTricks = () => {
       id: "use-ngrok",
       title: "1) Use ngrok to test your frames v2 app on Warpcast",
       text: (
-        <VStack gap="1rem" mb={2} py={2} align="left">
+        <VStack gap="1rem" mb={{ base: 2, md: 4 }} py={2} align="left">
           <Paragraph py={2}>
             You can use <Code>ngrok</Code> to test your new frame directly on
             your phone on Warpcast app.
@@ -50,12 +50,12 @@ export const TipsAndTricks = () => {
             Follow the instructions below to get started.
           </Paragraph>
           <Box
-            w="full"
+            w={{ base: "full", md: "23%" }}
             display="flex"
             justifyContent="center"
             borderRadius="20px"
             minHeight={{ base: "500px" }}
-            py={{ base: "5", md: "10" }}
+            py={{ base: "5" }}
           >
             <video
               width="100%"
@@ -87,7 +87,13 @@ export const TipsAndTricks = () => {
       id: "frames-js-debugger",
       title: "2) Frames.js debugger (just from your localhost)",
       text: (
-        <VStack gap="1rem" mb={4} py={2} align="left">
+        <VStack
+          gap="1rem"
+          mb={4}
+          py={2}
+          align="left"
+          lineHeight={{ base: "normal", md: 1.7 }}
+        >
           <Paragraph>
             You can now generate a domain manifest for localhost directly from
             the debugger, making it easier to test frames locally.
@@ -111,7 +117,14 @@ export const TipsAndTricks = () => {
       id: "remember-to-load-context",
       title: "3) Always remember to load the context!",
       text: (
-        <VStack gap="1rem" mb={4} py={2} align="left">
+        <VStack
+          gap="1rem"
+          mb={4}
+          py={2}
+          align="left"
+          w={{ base: "100%", md: "70%" }}
+          lineHeight={{ base: "normal", md: 1.7 }}
+        >
           <Paragraph>
             Are you testing your new frame and the page is blank? Make sure to
             load the context first, as it is required for the frame to work.
@@ -138,7 +151,12 @@ export const TipsAndTricks = () => {
       id: "every-webapp-could-be-a-frame",
       title: "4) Every Web App can be a frame",
       text: (
-        <VStack gap="1rem" mb={4} py={2} align="left">
+        <VStack
+          gap="1rem"
+          align="left"
+          w={{ base: "100%", md: "70%" }}
+          lineHeight={{ base: "normal", md: 1.7 }}
+        >
           <Paragraph>
             For your first frame v2, why not try to convert an existing web app
             into a frame?
@@ -157,24 +175,14 @@ export const TipsAndTricks = () => {
     },
   ];
   return (
-    <VStack
-      justify="center"
-      align={{ base: "left", lg: "center" }}
-      w="full"
-      gap={"1.3rem"}
-    >
+    <VStack justify="center" align="left" w="full" gap={"1.3rem"}>
       <Title id={getTitleId(MenuLink.TipsAndTricks)}>Tips & Tricks</Title>
 
       <Paragraph>
         Here's some tips and tricks to help you build your frames v2 app:
       </Paragraph>
 
-      <VStack
-        gap={"1.5rem"}
-        align={{ base: "left", lg: "center" }}
-        w="full"
-        listStyleType="decimal"
-      >
+      <VStack gap={"1.5rem"} align="left" w="full" listStyleType="decimal">
         {tipsAndTricks.map((tipAndTrick) => (
           <Box key={tipAndTrick.id}>
             <Subtitle color="primary">{tipAndTrick.title}</Subtitle>
@@ -186,7 +194,12 @@ export const TipsAndTricks = () => {
                 fontSize="xs"
               />
             ) : null}
-            <Separator mt={4} />
+            {tipsAndTricks[tipsAndTricks.length - 1].id !== tipAndTrick.id && (
+              <Separator
+                mt={{ base: 4, md: "2.5rem" }}
+                mb={{ base: 0, md: "1rem" }}
+              />
+            )}
           </Box>
         ))}
       </VStack>

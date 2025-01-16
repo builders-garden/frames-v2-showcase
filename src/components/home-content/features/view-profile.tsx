@@ -158,15 +158,21 @@ export function ViewProfile({ userFid }: { userFid: number }) {
       <PrimaryButton onClick={() => viewProfile(userFid)}>
         View your profile
       </PrimaryButton>
-      <VStack gap="0.5rem">
-        <HStack>
+      <VStack gap="0.5rem" w={{ base: "full", md: "50%", lg: "30%" }}>
+        <HStack w="full">
           <Input
+            w="full"
             placeholder="Search Farcaster users"
             variant="subtle"
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
           />
-          <PrimaryButton onClick={handleSearch} loading={isSearching}>
+          <PrimaryButton
+            onClick={handleSearch}
+            loading={isSearching}
+            w="25%"
+            size="sm"
+          >
             {isSearching ? "Searching..." : "Search"}
           </PrimaryButton>
         </HStack>

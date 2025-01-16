@@ -15,7 +15,7 @@ export const FarcasterLink = ({
   target = "_blank",
   textAlign = "left",
   fontSize = "14px",
-  color = "primary",
+  color = "link",
   cursor = "pointer",
   mt = "0",
 }: {
@@ -35,11 +35,7 @@ export const FarcasterLink = ({
   }, []);
 
   return (
-    <Box
-      w="full"
-      display="flex"
-      justifyContent={{ base: "left", md: "center" }}
-    >
+    <Box w="full" display="flex" alignItems="flex-start">
       {context ? (
         <Text
           fontSize={{ base: fontSize, lg: "lg" }}

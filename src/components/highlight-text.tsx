@@ -6,7 +6,7 @@ export const HighlightedText = ({
   children: React.ReactNode;
 }) => {
   return (
-    <Text as="span" fontWeight="bold" color="primary">
+    <Text as="span" fontWeight="semibold" color="primary">
       {children}
     </Text>
   );

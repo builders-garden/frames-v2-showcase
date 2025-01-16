@@ -13,9 +13,9 @@ export async function GET() {
     frame: {
       version: "1",
       name: "Farcaster FramesV2 Showcase",
-      iconUrl: "https://settled-alive-katydid.ngrok-free.app/icon.png",
+      iconUrl: "https://settled-alive-katydid.ngrok-free.app/splash.png",
       homeUrl: "https://settled-alive-katydid.ngrok-free.app",
-      imageUrl: "https://settled-alive-katydid.ngrok-free.app/image.png",
+      imageUrl: "https://settled-alive-katydid.ngrok-free.app/splash.png",
       buttonTitle: "FramesV2 Showcase",
       splashImageUrl: "https://settled-alive-katydid.ngrok-free.app/splash.png",
       splashBackgroundColor: "#eeccff",

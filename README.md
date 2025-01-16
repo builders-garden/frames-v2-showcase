@@ -52,6 +52,10 @@ yarn install
    Create a `.env.local` file in the root directory with the following variables:
 
 ```
+# NextAuth generate your secret with `openssl rand -base64 32`
+NEXTAUTH_SECRET="<YOUR_NEXTAUTH_SECRET>"
+NEXTAUTH_URL="http://localhost:3000"
+
 NEXT_PUBLIC_URL="http://localhost:3000"
 
 NEYNAR_BASE_URL="https://api.neynar.com/v2"

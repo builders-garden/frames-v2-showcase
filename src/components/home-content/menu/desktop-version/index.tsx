@@ -1,6 +1,7 @@
 import { Box } from "@chakra-ui/react";
-import { menuItems } from "../data";
+import { getTitleId, menuItems } from "../data";
 import { MenuItem, MenuSubItem } from "../items";
+import { scrollToSection } from "..";
 
 export const MenuDesktop = () => {
   return (
@@ -17,26 +18,18 @@ export const MenuDesktop = () => {
     >
       {menuItems.map((item, index) => (
         <Box key={index} mb={item.subitems ? "0.5rem" : "0"}>
-          {/* <ChakraMenuItem
-              id={`${item.value}-item`}
-              value={getTitleId(item.value)}
-              asChild
-            > */}
-          <MenuItem>{item.text}</MenuItem>
-          {/* </ChakraMenuItem> */}
+          <MenuItem onClick={() => scrollToSection(getTitleId(item.value))}>
+            {item.text}
+          </MenuItem>
           {item.subitems && (
             <Box>
               {item.subitems.map((subitem, subIndex) => (
-                // <ChakraMenuItem
-                //   asChild
-                //   key={subIndex}
-                //   id={`${subitem.value}-item`}
-                //   value={`${subitem.value}-link`}
-                // >
-                <MenuSubItem key={`${subIndex}-${subitem.value}`}>
+                <MenuSubItem
+                  key={`${subIndex}-${subitem.value}`}
+                  onClick={() => scrollToSection(getTitleId(subitem.value))}
+                >
                   {subitem.text}
                 </MenuSubItem>
-                // </ChakraMenuItem>
               ))}
             </Box>
           )}

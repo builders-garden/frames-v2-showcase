@@ -7,7 +7,7 @@ import { IoClose } from "react-icons/io5";
 import { MenuItem, MenuSubItem } from "./items";
 import { getTitleId, menuItems } from "./data";
 
-const scrollToSection = (id: string) => {
+export const scrollToSection = (id: string) => {
   const section = document.getElementById(id);
   console.log("section", section);
   if (section) {

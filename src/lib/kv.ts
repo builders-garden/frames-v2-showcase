@@ -1,10 +1,9 @@
 import { FrameNotificationDetails } from "@farcaster/frame-sdk";
 import { Redis } from "@upstash/redis";
-import { env } from "./env";
 
 const redis = new Redis({
-  url: env.KV_REST_API_URL,
-  token: env.KV_REST_API_TOKEN,
+  url: process.env.KV_REST_API_URL || "http://localhost:6439",
+  token: process.env.KV_REST_API_TOKEN || "token",
 });
 
 function getUserNotificationDetailsKey(fid: number): string {

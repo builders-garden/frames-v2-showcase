@@ -7,6 +7,9 @@ import { toaster } from "@/components/ui/toaster";
 import { PrimaryButton } from "@/components/ui/button";
 import { Paragraph } from "@/components/ui/paragraph";
 import CodeBlock from "@/components/ui/code-block";
+import { FarcasterLink } from "@/components/farcaster-link";
+import { useFrameContext } from "@/hooks/frame-context";
+import { Alert } from "@/components/ui/alert";
 
 const codeBlock = `
   import { useCallback } from "react";
@@ -38,6 +41,8 @@ const codeBlock = `
   `;
 
 export function AddFrame() {
+  const { context } = useFrameContext();
+
   const addFrame = useCallback(async () => {
     try {
       const result = await sdk.actions.addFrame();
@@ -74,8 +79,29 @@ export function AddFrame() {
         When your frame loads, the parent Farcaster app provides it with context
         information, including the current user. Let's take a look at it.
       </Paragraph>
-      <PrimaryButton onClick={addFrame}>Add this frame</PrimaryButton>
+      <Paragraph>
+        The user can add a frame to their Farcaster app, either through an SDK
+        action or directly (e.g. from a deep link). This will add the frame to
+        the user's Frame Explorer section and will allow to accept notifications
+        from the frame.
+      </Paragraph>
+      {context ? (
+        <PrimaryButton onClick={addFrame}>Add this frame</PrimaryButton>
+      ) : (
+        <Alert
+          title="Do you like this? Add me to your Farcaster app 👀"
+          status="info"
+        >
+          If you load this site like a frame V2, you can try the Add Frame
+          feature directly and retrieve me from the Frame Explorer section.
+        </Alert>
+      )}
       <CodeBlock title="AddFrame.tsx" language="typescript" code={codeBlock} />
+      <FarcasterLink
+        link="https://docs.farcaster.xyz/developers/frames/v2/spec#feature-add-frame"
+        text="Learn more about the add frame action here"
+        fontSize="xs"
+      />
     </VStack>
   );
 }

@@ -3,37 +3,20 @@
 import { FarcasterLink } from "@/components/farcaster-link";
 import { Alert } from "@/components/ui/alert";
 import { PrimaryButton } from "@/components/ui/button";
+import { Field } from "@/components/ui/field";
 import { Paragraph } from "@/components/ui/paragraph";
 import { useFrameContext } from "@/hooks/frame-context";
 import { useUser } from "@/hooks/use-user";
-import { Code, VStack, Separator } from "@chakra-ui/react";
+import { Code, VStack, Separator, Input, Textarea } from "@chakra-ui/react";
 import { useCallback, useState } from "react";
-
-const exampleContext = {
-  user: {
-    fid: 262800,
-    username: "itsmide.eth",
-    displayName: "Fraye",
-    pfpUrl:
-      "https://wrpcd.net/cdn-cgi/imagedelivery/BXluQx4ige9GuW0Ia56BHw/bc698287-5adc-4cc5-a503-de16963ed900/anim=false,fit=contain,f=auto,w=336",
-  },
-  client: {
-    clientFid: "number",
-    added: "boolean",
-    safeAreaInsets: "SafeAreaInsets",
-    notificationDetails: "FrameNotificationDetails",
-  },
-  location: null,
-};
 
 export function NotificationsWebhook() {
   const [sendNotificationResult, setSendNotificationResult] = useState("");
   const [isSendingNotification, setIsSendingNotification] = useState(false);
+  const [notificationText, setNotificationText] = useState("");
 
   const { context, isSDKLoaded } = useFrameContext();
-  const { user, isLoading } = useUser(
-    context?.user.fid || exampleContext.user.fid,
-  );
+  const { user, isLoading } = useUser(context?.user.fid);
 
   const sendNotification = useCallback(async () => {
     setSendNotificationResult("Checking...");
@@ -52,9 +35,11 @@ export function NotificationsWebhook() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           fid: context.user.fid,
-          title: "Gm from Farcaster FramesV2 Showcase team",
+          title: "Farcaster FramesV2 Showcase",
           text:
-            "This is a test notification for you " + context.user.displayName,
+            notificationText.length > 0
+              ? notificationText
+              : `gm ${context.user.displayName}, it's me from the FramesV2 Showcase and this is a test notification for myself`,
         }),
       });
 
@@ -75,12 +60,6 @@ export function NotificationsWebhook() {
       setSendNotificationResult(`Error: ${error}`);
     }
   }, [context, isSDKLoaded, user, user?.token]);
-
-  console.log({
-    user: user,
-    context: context,
-    isLoading: isLoading,
-  });
 
   if (!isSDKLoaded) {
     return <Paragraph>Loading...</Paragraph>;
@@ -108,29 +87,37 @@ export function NotificationsWebhook() {
         the notifications tab.
       </Paragraph>
 
-      <Separator />
-
       <Paragraph fontWeight="bold">Let's try it out!</Paragraph>
-
-      <Paragraph>
-        Now it&apos;s your turn to send a notification to yourself!
-      </Paragraph>
 
       {!user || !user.token || !context || !isSDKLoaded ? (
         <Alert title="Wait!" status="error">
-          You need to view this page as a FrameV2 in order to try this feature.
+          Whooooops! It seems like you aren't viewing this from a frames V2 or
+          you haven&apos;t added the frame to your Farcaster app yet. If you
+          want to try this feature, please open this page in a frames V2 and add
+          the frame to your Farcaster app.
         </Alert>
       ) : (
         <>
           <Paragraph>
-            Click the button below to send a test notification.
+            Type what ever you want to tell to yourself and click the button
+            below to send a test notification.
           </Paragraph>
-          {sendNotificationResult && (
-            <div className="mb-2 text-sm">
-              Send notification result: {sendNotificationResult}
-            </div>
-          )}
+          <Field label="Your message">
+            <Textarea
+              outline="none"
+              resize="none"
+              placeholder={`gm ${context.user.displayName}, it's me from the FramesV2 Showcase and this is a test notification for myself`}
+              value={notificationText}
+              onChange={(e) => setNotificationText(e.target.value)}
+              borderColor="border.emphasized"
+            />
+          </Field>
           <div className="mb-4 w-full">
+            {sendNotificationResult && (
+              <div className="mb-2 text-sm">
+                Send notification result: {sendNotificationResult}
+              </div>
+            )}
             <PrimaryButton
               loadingText="Sending..."
               onClick={sendNotification}

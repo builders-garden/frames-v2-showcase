@@ -66,7 +66,7 @@ export async function POST(request: NextRequest) {
         }
         await sendFrameNotification({
           fid,
-          title: "FrameV2 Showcase added 💜",
+          title: "Speedrun frames v2 added 💜",
           body: "You will receive notifications when the docs will be updated",
         });
       } else {
@@ -87,7 +87,7 @@ export async function POST(request: NextRequest) {
       await sendFrameNotification({
         fid,
         title: "gm Farcaster Fren 💜",
-        body: "Notifications for Farcaster FramesV2 Showcase are now enabled",
+        body: "Notifications for Speedrun frames v2 are now enabled",
       });
       break;
     case "notifications_disabled":

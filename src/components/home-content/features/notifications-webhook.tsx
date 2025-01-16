@@ -35,7 +35,7 @@ export function NotificationsWebhook() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           fid: context.user.fid,
-          title: "Farcaster FramesV2 Showcase",
+          title: "Speedrun frames v2 💜",
           text:
             notificationText.length > 0
               ? notificationText

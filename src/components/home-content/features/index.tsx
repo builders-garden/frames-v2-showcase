@@ -30,7 +30,7 @@ export function Features() {
       id: MenuLink.FarcasterContext,
       title: "Farcaster Context",
       Subtitle:
-        "The Farcaster app provides the context information (including the current user)",
+        "The Farcaster app provides the context information (including the current user).",
       text: <FarcasterContext context={context} isSDKLoaded />,
     },
     {
@@ -43,7 +43,8 @@ export function Features() {
     {
       id: MenuLink.AddFrame,
       title: "Add Frame",
-      Subtitle: "Add a frame to the client (warpcast).",
+      Subtitle:
+        "Choose your favorite frames and add them to your Frame Explorer section.",
       text: <AddFrame />,
     },
     {
@@ -55,19 +56,19 @@ export function Features() {
     {
       id: MenuLink.ShowFarcasterProfile,
       title: "Show Farcaster profile",
-      Subtitle: "View the profile of a user",
-      text: <ViewProfile fid={fid} />,
+      Subtitle: "View the profile of a user.",
+      text: <ViewProfile userFid={fid} />,
     },
     {
       id: MenuLink.Signature,
       title: "Sign Message",
-      Subtitle: "Create a signature through your wallet",
+      Subtitle: "Create a signature through your wallet.",
       text: (open: boolean) => <SignAMessage open={open} />,
     },
     {
       id: MenuLink.SendTransaction,
       title: "Send Transaction",
-      Subtitle: "Send a transaction through your wallet",
+      Subtitle: "Send a transaction through your wallet.",
       text: <SendTransaction />,
     },
   ];

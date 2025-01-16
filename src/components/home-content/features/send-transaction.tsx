@@ -11,6 +11,8 @@ import CodeBlock from "@/components/ui/code-block";
 import { useChainId, useSendTransaction, useSwitchChain } from "wagmi";
 import { FarcasterLink } from "@/components/farcaster-link";
 import { base } from "viem/chains";
+import { useFrameContext } from "@/hooks/frame-context";
+import { Alert } from "@/components/ui/alert";
 
 const codeBlock = `
   const sendTx = useCallback(() => {
@@ -31,21 +33,12 @@ const codeBlock = `
 
 export function SendTransaction() {
   const [txHash, setTxHash] = useState<string | null>(null);
+  const { context } = useFrameContext();
 
   const chainId = useChainId();
 
-  const {
-    switchChain,
-    error: switchChainError,
-    isError: isSwitchChainError,
-    isPending: isSwitchChainPending,
-  } = useSwitchChain();
-  const {
-    sendTransaction,
-    error: sendTxError,
-    isError: isSendTxError,
-    isPending: isSendTxPending,
-  } = useSendTransaction();
+  const { switchChain, isPending: isSwitchChainPending } = useSwitchChain();
+  const { sendTransaction } = useSendTransaction();
 
   const handleSwitchChain = useCallback(async () => {
     await switchChain({ chainId: base.id });
@@ -83,30 +76,50 @@ export function SendTransaction() {
   return (
     <VStack gap="1rem" width="100%" alignItems="flex-start">
       <Paragraph>
-        When your frame loads, the parent Farcaster app provides it with context
-        information, including the current user. Let's take a look at it.
+        After performing signatures, you can also send transactions using the
+        user connected wallet.
       </Paragraph>
-      <PrimaryButton onClick={sendTx} disabled={chainId !== base.id}>
-        Yoink
-      </PrimaryButton>
-      {chainId !== base.id ? (
-        <PrimaryButton
-          onClick={handleSwitchChain}
-          loading={isSwitchChainPending}
+
+      {context ? (
+        <>
+          <PrimaryButton onClick={sendTx} disabled={chainId !== base.id}>
+            Fire Transaction (Yoink)
+          </PrimaryButton>
+          {chainId !== base.id ? (
+            <PrimaryButton
+              onClick={handleSwitchChain}
+              loading={isSwitchChainPending}
+            >
+              Switch to Base
+            </PrimaryButton>
+          ) : null}
+          {txHash ? (
+            <FarcasterLink
+              link={`https://base.blockscout.com/tx/${txHash}`}
+              text="View on Basescan"
+            />
+          ) : null}
+        </>
+      ) : (
+        <Alert
+          title="Bruh, again from browser? FIRE FROM FRAME 🔥"
+          status="info"
         >
-          Switch to Base
-        </PrimaryButton>
-      ) : null}
-      {txHash ? (
-        <FarcasterLink
-          link={`https://base.blockscout.com/tx/${txHash}`}
-          text="View on Basescan"
-        />
-      ) : null}
+          If you load this site like a frames V2, you can fire transactions for
+          real.
+        </Alert>
+      )}
+
       <CodeBlock
         language="typescript"
         code={codeBlock}
-        title="Send Transaction"
+        title="SendTransaction.tsx"
+      />
+
+      <FarcasterLink
+        link="https://docs.farcaster.xyz/developers/frames/v2/getting-started#wallet-interactions"
+        text="Learn more about wallet interactions and transactions here"
+        fontSize="xs"
       />
     </VStack>
   );

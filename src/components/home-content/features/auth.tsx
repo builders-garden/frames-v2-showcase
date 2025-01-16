@@ -9,8 +9,15 @@ import { Paragraph } from "@/components/ui/paragraph";
 import { useFrameContext } from "@/hooks/frame-context";
 import CodeBlock from "@/components/ui/code-block";
 import { FarcasterLink } from "@/components/farcaster-link";
+import { Alert } from "@/components/ui/alert";
 
 export const MESSAGE_EXPIRATION_TIME = 24 * 60 * 60 * 1000; // 24 hours
+
+const SIGN_RESULT_EXAMPLE = {
+  message:
+    "frames-v2-showcase.vercel.app wants you to sign in with your Ethereum account:\n0x1234567890abcdefghilmnopq\n\nFarcaster Auth\n\nURI: https://frames-v2-showcase.vercel.app/\nVersion: 1\nChain ID: 10\nNonce: sgh5di8w9xh\nIssued At: 2025-01-16T21:20:17.637Z\nExpiration Time: 2025-01-17T21:20:17.629Z\nNot Before: 2025-01-16T21:20:17.629Z\nResources:\n- farcaster://fid/<your_fid>",
+  signature: "0x5301f1fhksrt...0b728744f1c",
+};
 
 export type SignInResult = {
   signature: string;
@@ -50,7 +57,17 @@ export function FeatureAuth() {
         In with Farcaster flow for the user. When you validate the returned
         message, you must check the domain.
       </Paragraph>
-      <PrimaryButton onClick={handleSignIn}>Sign In</PrimaryButton>
+      {context ? (
+        <PrimaryButton onClick={handleSignIn}>Sign In</PrimaryButton>
+      ) : (
+        <Alert
+          title="Hey fren, have you tried to view this from a Frames V2? 👀"
+          status="info"
+        >
+          If you load this site like a frames V2, you can try the Sign In With
+          Farcaster feature directly.
+        </Alert>
+      )}
       {signInResult !== null && (
         <CodeBlock
           language="json"
@@ -58,6 +75,14 @@ export function FeatureAuth() {
           title="signIn result"
         />
       )}
+      {!context && (
+        <CodeBlock
+          language="json"
+          code={JSON.stringify(SIGN_RESULT_EXAMPLE, null, 2)}
+          title="Example Sign In Result"
+        />
+      )}
+
       <FarcasterLink
         link="https://docs.farcaster.xyz/developers/frames/v2/spec#feature-auth"
         text="Learn more about the Auth feature here"

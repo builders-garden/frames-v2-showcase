@@ -14,19 +14,32 @@ interface FarcasterContextProps {
 
 const exampleContext = {
   user: {
-    fid: 3,
-    username: "dwr.eth",
-    displayName: "Dan Romero",
-    pfpUrl:
-      "https://wrpcd.net/cdn-cgi/imagedelivery/BXluQx4ige9GuW0Ia56BHw/bc698287-5adc-4cc5-a503-de16963ed900/anim=false,fit=contain,f=auto,w=336",
+    fid: 262800,
+    username: "itsmide.eth",
+    displayName: "mide (aka fraye)",
+    pfpUrl: "https://i.imgur.com/96rdcWp.jpg",
+    location: {
+      placeId: "",
+      description: "",
+    },
+  },
+  location: {
+    type: "launcher",
   },
   client: {
-    clientFid: "number",
-    added: "boolean",
-    safeAreaInsets: "SafeAreaInsets",
-    notificationDetails: "FrameNotificationDetails",
+    clientFid: 9152,
+    added: true,
+    safeAreaInsets: {
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 34,
+    },
+    notificationDetails: {
+      token: "<user_token>",
+      url: "https://api.warpcast.com/v1/frame-notifications",
+    },
   },
-  location: null,
 };
 
 export function FarcasterContext({
@@ -57,6 +70,15 @@ export function FarcasterContext({
           </Text>
         </Stack>
       </HStack>
+      {!context && (
+        <Alert
+          title="Hey fren, have you tried to view this from a Frames V2? 👀"
+          status="info"
+        >
+          If you load this site like a frames V2, you should see your own
+          Farcaster user profile and your own context data.
+        </Alert>
+      )}
       <CodeBlock
         code={
           context
@@ -66,10 +88,6 @@ export function FarcasterContext({
         title="sdk.context"
         language="json"
       />
-      <Paragraph>
-        If you load this site like a frames V2, you should see your own
-        Farcaster user profile:
-      </Paragraph>
       <Alert title="Warning" status="warning" icon={<LuBadgeAlert />}>
         Keep in mind that the context data is unauthenticated as it is, assume
         it is spoofable and don't use it to grant privileged access to the user!

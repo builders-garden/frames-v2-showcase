@@ -1,4 +1,4 @@
-import { VStack } from "@chakra-ui/react";
+import { Box, Stack, VStack } from "@chakra-ui/react";
 
 import { Hero } from "@/components/home-content/hero";
 import { Introduction } from "@/components/home-content/introduction";
@@ -11,23 +11,28 @@ import { HomeMenu } from "./menu";
 
 export default function HomeContent() {
   return (
-    <VStack gap="6rem" pb="4rem">
+    <Stack gap="6rem" pb="4rem" direction={{ base: "column", md: "row" }}>
+      <Box display={{ base: "none", md: "block" }} w="25%">
+        <p>Menu</p>
+      </Box>
       <HomeMenu />
-      <Hero />
-      <VStack
-        justify="center"
-        align={{ base: "left", lg: "center" }}
-        w="full"
-        gap="6rem"
-        px={{ base: "30px", md: 8 }}
-      >
-        <Introduction />
-        <GettingStarted />
-        <Features />
-        <TipsAndTricks />
-        <HowTos />
-        <Resources />
+      <VStack w="full" gap="6rem">
+        <Hero />
+        <VStack
+          justify="center"
+          align={{ base: "left", lg: "center" }}
+          w="full"
+          gap="6rem"
+          px={{ base: "30px", md: 8 }}
+        >
+          <Introduction />
+          <GettingStarted />
+          <Features />
+          <TipsAndTricks />
+          <HowTos />
+          <Resources />
+        </VStack>
       </VStack>
-    </VStack>
+    </Stack>
   );
 }

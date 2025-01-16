@@ -53,7 +53,7 @@ const CoinbaseWallet = () => {
 const RainbowWallet = () => {
   return (
     <Image
-      src="/rainbow-wallet.png"
+      src="/logo-rainbow-wallet.png"
       alt="Rainbow Wallet"
       width={32}
       height={32}

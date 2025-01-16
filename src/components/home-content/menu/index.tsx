@@ -22,7 +22,13 @@ export const HomeMenu = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <Box position="fixed" bottom="2rem" right="2rem" zIndex={100}>
+    <Box
+      position="fixed"
+      bottom="2rem"
+      right="2rem"
+      zIndex={100}
+      display={{ base: "block", md: "none" }}
+    >
       <MenuRoot
         positioning={{ placement: "top-start" }}
         open={open}

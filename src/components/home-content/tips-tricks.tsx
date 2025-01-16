@@ -28,7 +28,7 @@ export const TipsAndTricks = () => {
       justify="center"
       align={{ base: "left", lg: "center" }}
       w="full"
-      gap={4}
+      gap={"1.3rem"}
     >
       <Title id={getTitleId(MenuLink.TipAndTricks)}>Tips & Tricks</Title>
 
@@ -37,7 +37,7 @@ export const TipsAndTricks = () => {
       </Text>
 
       <VStack
-        gap={3}
+        gap={"1.5rem"}
         align={{ base: "left", lg: "center" }}
         px={{ base: "30px", md: 8 }}
         w="full"

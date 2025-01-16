@@ -20,27 +20,29 @@ export const HowTos = () => {
       justify="center"
       align={{ base: "left", lg: "center" }}
       w="full"
-      gap={4}
+      gap={"3rem"}
     >
-      <Title id={getTitleId(MenuLink.HowTo)}>How to</Title>
+      <VStack gap={"1.5rem"} w="full" align={{ base: "left", lg: "center" }}>
+        <Title id={getTitleId(MenuLink.HowTo)}>How to</Title>
 
-      <Text fontSize={{ base: "18px", md: "xl" }} textAlign="left">
-        Here's some guides on how to:
-      </Text>
+        <Text fontSize={{ base: "18px", md: "xl" }} textAlign="left">
+          Here's some guides on how to:
+        </Text>
 
-      <VStack
-        gap={3}
-        align={{ base: "left", lg: "center" }}
-        px={{ base: "30px", md: 8 }}
-        w="full"
-        as="ul"
-        listStyleType="circle"
-      >
-        {howTos.map((howTo) => (
-          <li key={howTo.title}>
-            <FarcasterLink link={howTo.link} text={howTo.title} />
-          </li>
-        ))}
+        <VStack
+          gap={"1rem"}
+          align={{ base: "left", lg: "center" }}
+          px={{ base: "30px", md: 8 }}
+          w="full"
+          as="ul"
+          listStyleType="circle"
+        >
+          {howTos.map((howTo) => (
+            <li key={howTo.title}>
+              <FarcasterLink link={howTo.link} text={howTo.title} />
+            </li>
+          ))}
+        </VStack>
       </VStack>
 
       <Box

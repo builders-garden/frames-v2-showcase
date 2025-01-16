@@ -39,7 +39,7 @@ export function Features() {
   ];
 
   return (
-    <VStack gap="1rem" width="100%" alignItems="flex-start">
+    <VStack gap="1.5rem" width="100%" alignItems="flex-start">
       <Title id={getTitleId(MenuLink.Features)}>Features</Title>
       <Paragraph>
         Try these interactive features to experience frames v2 potential
@@ -57,7 +57,9 @@ export function Features() {
                 </Text>
               </Stack>
             </AccordionItemTrigger>
-            <AccordionItemContent>{item.text}</AccordionItemContent>
+            <AccordionItemContent bg="#202020" p="1rem">
+              {item.text}
+            </AccordionItemContent>
           </AccordionItem>
         ))}
       </AccordionRoot>

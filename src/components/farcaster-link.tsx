@@ -17,7 +17,7 @@ export const FarcasterLink = ({
   fontSize = "14px",
   color = "primary",
   cursor = "pointer",
-  mt = "4",
+  mt = "0",
 }: {
   link: string;
   text: string;

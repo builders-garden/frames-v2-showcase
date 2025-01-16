@@ -25,15 +25,14 @@ export const Hero = () => {
           textAlign="left"
           lineHeight="shorter"
         >
-          Farcaster
+          Speedrun
           <br />
           Frames V2
-          <br />
-          showcase
         </Heading>
 
         <Text fontSize={{ base: "18px", md: "xl" }} textAlign="left">
-          A practical guide to understand and start building Frames v2
+          A practical guide to understand and start building Frames v2, with
+          useful tips and resources.
         </Text>
 
         <Text

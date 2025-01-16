@@ -11,22 +11,25 @@ export const Introduction = () => {
       justify="center"
       align={{ base: "left", lg: "center" }}
       w="full"
-      gap={4}
+      gap={"3rem"}
     >
-      <Title id={getTitleId(MenuLink.Introduction)}>Introduction</Title>
+      <VStack gap={"1.5rem"} w="full" align={{ base: "left", lg: "center" }}>
+        <Title id={getTitleId(MenuLink.Introduction)}>Introduction</Title>
 
-      <Text fontSize={{ base: "18px", md: "xl" }} textAlign="left">
-        Frames launched as a way to build{" "}
-        <HighlightedText>interactive apps</HighlightedText> that run directly in
-        a <HighlightedText>Farcaster social feed</HighlightedText>.
-        <br />
-        Frames v2 are a new frame standard to enable richer social applications
-      </Text>
+        <Text fontSize={{ base: "18px", md: "xl" }} textAlign="left">
+          Frames launched as a way to build{" "}
+          <HighlightedText>interactive apps</HighlightedText> that run directly
+          in a <HighlightedText>Farcaster social feed</HighlightedText>.
+          <br />
+          Frames v2 are a new frame standard to enable richer social
+          applications
+        </Text>
 
-      <FarcasterLink
-        link="https://docs.farcaster.xyz/developers/frames/v2/"
-        text="Full introduction to Frames v2"
-      />
+        <FarcasterLink
+          link="https://docs.farcaster.xyz/developers/frames/v2/"
+          text="Full introduction to Frames v2"
+        />
+      </VStack>
 
       <video
         width="100%"

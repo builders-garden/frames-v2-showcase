@@ -10,18 +10,20 @@ export const GettingStarted = () => {
       justify="center"
       align={{ base: "left", lg: "center" }}
       w="full"
-      gap={4}
+      gap={"3rem"}
     >
-      <Title id={getTitleId(MenuLink.GettingStarted)}>Getting Started</Title>
+      <VStack gap={"1.5rem"} w="full" align={{ base: "left", lg: "center" }}>
+        <Title id={getTitleId(MenuLink.GettingStarted)}>Getting Started</Title>
 
-      <Text fontSize={{ base: "18px", md: "xl" }} textAlign="left">
-        Here's a full walkthrough of creating a frames v2 app:
-      </Text>
+        <Text fontSize={{ base: "18px", md: "xl" }} textAlign="left">
+          Here's a full walkthrough of creating a frames v2 app:
+        </Text>
 
-      <FarcasterLink
-        link="https://docs.farcaster.xyz/developers/frames/v2/"
-        text="Full Getting Started tutorial"
-      />
+        <FarcasterLink
+          link="https://docs.farcaster.xyz/developers/frames/v2/"
+          text="Full Getting Started tutorial"
+        />
+      </VStack>
 
       <Box
         w="full"

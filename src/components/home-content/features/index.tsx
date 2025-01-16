@@ -57,7 +57,7 @@ export function Features() {
       id: MenuLink.ShowFarcasterProfile,
       title: "Show Farcaster profile",
       Subtitle: "View the profile of a user.",
-      text: <ViewProfile fid={fid} />,
+      text: <ViewProfile userFid={fid} />,
     },
     {
       id: MenuLink.Signature,

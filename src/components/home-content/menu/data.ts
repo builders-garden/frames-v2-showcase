@@ -9,6 +9,7 @@ export enum MenuLink {
   FarcasterContext = "farcaster-context",
   Auth = "auth",
   AddFrame = "add-frame",
+  ViewProfile = "view-profile",
   ShowFarcasterProfile = "show-farcaster-profile",
   NotificationsAndWebhook = "notifications-&-webhook",
   Signature = "signature",

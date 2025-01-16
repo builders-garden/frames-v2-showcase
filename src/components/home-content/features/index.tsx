@@ -12,9 +12,11 @@ import {
 import { FarcasterContext } from "./farcaster-context";
 import { AddFrame } from "./add-frame";
 import { getTitleId, MenuLink } from "../menu/data";
+import { ViewProfile } from "./view-profile";
 
 export function Features() {
   const { context, isSDKLoaded } = useFrameContext();
+  const fid: number = context?.user?.fid || 2;
 
   if (!isSDKLoaded) {
     return <Paragraph>Loading...</Paragraph>;
@@ -31,10 +33,17 @@ export function Features() {
     },
     {
       id: MenuLink.AddFrame,
-      value: "c",
+      value: "b",
       title: "Add Frame",
       Subtitle: "Add a frame to the client (warpcast)",
       text: <AddFrame />,
+    },
+    {
+      id: MenuLink.ViewProfile,
+      value: "c",
+      title: "View Profile",
+      Subtitle: "View the profile of a user",
+      text: <ViewProfile fid={fid} />,
     },
   ];
 

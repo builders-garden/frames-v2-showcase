@@ -40,7 +40,7 @@ export const TipsAndTricks = () => {
   const tipsAndTricks = [
     {
       id: "use-ngrok",
-      title: "Use ngrok to test your frames v2 app on Warpcast",
+      title: "1) Use ngrok to test your frames v2 app on Warpcast",
       text: (
         <VStack gap="1rem" mb={2} py={2} align="left">
           <Paragraph py={2}>
@@ -85,13 +85,14 @@ export const TipsAndTricks = () => {
     },
     {
       id: "frames-js-debugger",
-      title: "Frames.js debugger (just from your localhost)",
+      title: "2) Frames.js debugger (just from your localhost)",
       text: (
         <VStack gap="1rem" mb={4} py={2} align="left">
           <Paragraph>
-            You can now generate a domain manifest for localhost to use for
-            testing frames locally directly from the debugger and you'll be able
-            to debug the various Farcaster webhooks as well as notifications.
+            You can now generate a domain manifest for localhost directly from
+            the debugger, making it easier to test frames locally.
+            <br /> This also allows you to debug various Farcaster webhooks and
+            notifications.
           </Paragraph>
           <Image
             src={"/screens/debugger-framesjs.png"}
@@ -108,7 +109,7 @@ export const TipsAndTricks = () => {
     },
     {
       id: "remember-to-load-context",
-      title: "Always remember to load the context!",
+      title: "3) Always remember to load the context!",
       text: (
         <VStack gap="1rem" mb={4} py={2} align="left">
           <Paragraph>
@@ -135,7 +136,7 @@ export const TipsAndTricks = () => {
     },
     {
       id: "every-webapp-could-be-a-frame",
-      title: "Every Web App can be a frame",
+      title: "4) Every Web App can be a frame",
       text: (
         <VStack gap="1rem" mb={4} py={2} align="left">
           <Paragraph>

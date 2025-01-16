@@ -2,7 +2,8 @@ import Image from "next/image";
 import { VStack, Text, HStack } from "@chakra-ui/react";
 import { Subtitle } from "@/components/ui/title";
 import { Paragraph } from "@/components/ui/paragraph";
-import { MenuLink } from "../menu/data";
+import { Alert } from "@/components/ui/alert";
+
 export const SupportedWallets = () => {
   const supportedWallets = [
     { name: "Coinbase Wallet", icon: <CoinbaseWallet /> },
@@ -12,17 +13,23 @@ export const SupportedWallets = () => {
     },
   ];
   return (
-    <VStack width="100%" alignItems="flex-start">
-      <Subtitle>Supported Wallets</Subtitle>
-      <Paragraph>Warpcast supports the following wallets:</Paragraph>
-      <HStack gap="1rem">
-        {supportedWallets.map((wallet) => (
-          <HStack key={wallet.name}>
-            {wallet.icon}
-            <Text key={wallet.name}>{wallet.name}</Text>
-          </HStack>
-        ))}
-      </HStack>
+    <VStack width="100%" alignItems="flex-start" gap="1.5rem">
+      <VStack width="100%" alignItems="flex-start">
+        <Subtitle>Supported Wallets</Subtitle>
+        <Paragraph>Warpcast supports the following wallets:</Paragraph>
+        <HStack gap="1rem">
+          {supportedWallets.map((wallet) => (
+            <HStack key={wallet.name}>
+              {wallet.icon}
+              <Text key={wallet.name}>{wallet.name}</Text>
+            </HStack>
+          ))}
+        </HStack>
+      </VStack>
+      <Alert title={`Warning`} status="warning">
+        Currently, Warpcast doesn't support Rainbow Wallet for operations on
+        Base Sepolia.
+      </Alert>
     </VStack>
   );
 };

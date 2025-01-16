@@ -15,6 +15,7 @@ import { ViewProfile } from "./view-profile";
 import { SignAMessage } from "./sign-a-message";
 import { useState } from "react";
 import { NotificationsWebhook } from "./notifications-webhook";
+import { SendTransaction } from "./send-transaction";
 
 export function Features() {
   const { context, isSDKLoaded } = useFrameContext();
@@ -42,7 +43,7 @@ export function Features() {
       text: <NotificationsWebhook />,
     },
     {
-      id: MenuLink.ViewProfile,
+      id: MenuLink.ShowFarcasterProfile,
       title: "View Profile",
       Subtitle: "View the profile of a user",
       text: <ViewProfile fid={fid} />,
@@ -52,6 +53,12 @@ export function Features() {
       title: "Sign a message",
       Subtitle: "Create a signature through your wallet",
       text: (open: boolean) => <SignAMessage open={open} />,
+    },
+    {
+      id: MenuLink.SendTransaction,
+      title: "Send Transaction",
+      Subtitle: "Send a transaction through your wallet",
+      text: <SendTransaction />,
     },
   ];
 

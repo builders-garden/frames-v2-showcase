@@ -90,11 +90,14 @@ export const Introduction = () => {
           <Subtitle fontSize="24px">The future of frames?</Subtitle>
         </VStack>
         <Paragraph lineHeight={1.7}>
-          The next steps that frames could unlock are...
+          Farcaster has laid the <HighlightedText>Base</HighlightedText>; now
+          it's our turn to shape the{" "}
+          <HighlightedText>future—empowering the community</HighlightedText>{" "}
+          with seamless, on-chain interoperability and{" "}
+          <HighlightedText>endless possibilities</HighlightedText> for{" "}
+          decentralized social applications.
         </Paragraph>
       </VStack>
-
-      {/* the future.... */}
     </VStack>
   );
 };

@@ -3,18 +3,19 @@ import { createClient } from "@libsql/client";
 import { eq } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/libsql";
 import { DbUser } from "./types";
+import { env } from "./env";
 
-if (!process.env.TURSO_DATABASE_URL) {
+if (!env.TURSO_DATABASE_URL) {
   throw new Error("Missing TURSO_DATABASE_URL environment variable");
 }
 
-if (!process.env.TURSO_AUTH_TOKEN) {
+if (!env.TURSO_AUTH_TOKEN) {
   throw new Error("Missing TURSO_AUTH_TOKEN environment variable");
 }
 
 export const tursoClient = createClient({
-  url: process.env.TURSO_DATABASE_URL,
-  authToken: process.env.TURSO_AUTH_TOKEN,
+  url: env.TURSO_DATABASE_URL,
+  authToken: env.TURSO_AUTH_TOKEN,
 });
 
 export const db = drizzle(tursoClient, {

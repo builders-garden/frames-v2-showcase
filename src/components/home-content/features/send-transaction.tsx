@@ -113,7 +113,7 @@ export function SendTransaction() {
       <CodeBlock
         language="typescript"
         code={codeBlock}
-        title="SendTransaction.tsx"
+        title="Send Transaction"
       />
 
       <FarcasterLink

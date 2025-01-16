@@ -35,7 +35,9 @@ interface SignAMessageProps {
 }
 
 export const SignAMessage: React.FC<SignAMessageProps> = ({ open }) => {
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState(
+    "I certiy I'll be a master of Frames v2 with this guide :3",
+  );
 
   const { signMessage, data, reset } = useSignMessage();
   const { context } = useFrameContext();
@@ -93,11 +95,7 @@ export const SignAMessage: React.FC<SignAMessageProps> = ({ open }) => {
           feature directly.
         </Alert>
       )}
-      <CodeBlock
-        language="typescript"
-        title="SignAMessage.tsx"
-        code={codeBlock}
-      />
+      <CodeBlock language="typescript" title="Sign Message" code={codeBlock} />
       <FarcasterLink
         link="https://docs.farcaster.xyz/developers/frames/v2/getting-started#signatures"
         text="Learn more about how signatures work here"

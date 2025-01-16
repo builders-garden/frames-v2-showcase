@@ -180,11 +180,7 @@ export function ViewProfile({ userFid }: { userFid: number }) {
           <FarcasterSelect users={farcasterUsers} onSelectUser={viewProfile} />
         )}
       </VStack>
-      <CodeBlock
-        language="typescript"
-        title="ViewProfile.tsx"
-        code={codeBlock}
-      />
+      <CodeBlock language="typescript" title="View Profile" code={codeBlock} />
     </VStack>
   );
 }

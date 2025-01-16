@@ -14,8 +14,7 @@ import { Alert } from "@/components/ui/alert";
 export const MESSAGE_EXPIRATION_TIME = 24 * 60 * 60 * 1000; // 24 hours
 
 const SIGN_RESULT_EXAMPLE = {
-  message:
-    "frames-v2-showcase.vercel.app wants you to sign in with your Ethereum account:\n0x1234567890abcdefghilmnopq\n\nFarcaster Auth\n\nURI: https://frames-v2-showcase.vercel.app/\nVersion: 1\nChain ID: 10\nNonce: sgh5di8w9xh\nIssued At: 2025-01-16T21:20:17.637Z\nExpiration Time: 2025-01-17T21:20:17.629Z\nNot Before: 2025-01-16T21:20:17.629Z\nResources:\n- farcaster://fid/<your_fid>",
+  message: "frames-v2-showcase.vercel.app wants you to sign in ...",
   signature: "0x5301f1fhksrt...0b728744f1c",
 };
 

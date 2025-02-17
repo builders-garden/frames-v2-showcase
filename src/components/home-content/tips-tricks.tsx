@@ -1,4 +1,4 @@
-import { VStack, Heading, Text, Box, Code } from "@chakra-ui/react";
+import { VStack, Box, Code, ListItem, ListRoot } from "@chakra-ui/react";
 
 import { FarcasterLink } from "@/components/farcaster-link";
 import { Subtitle, Title } from "../ui/title";
@@ -176,6 +176,88 @@ export const TipsAndTricks = () => {
       link: {
         title: "Convert your Web App into a Frame",
         link: "https://www.youtube.com/watch?v=9Dc64u8JTu0",
+      },
+    },
+    {
+      id: "why-is-my-frame-cached",
+      title: "5) Why is my frame cached?! by @deodad",
+      text: (
+        <VStack
+          gap="1rem"
+          align="left"
+          w={{ base: "100%", md: "70%" }}
+          lineHeight={{ base: "normal", md: 1.7 }}
+          mb={4}
+        >
+          <ListRoot as="ol" gap={4}>
+            <ListItem>
+              <b>Manifest</b>
+              <ListRoot ml={4}>
+                <ListItem>
+                  Cached for indefinitely by Warpcast servers, stale after 5
+                  minutes and will be refreshed on next read.
+                </ListItem>
+                <ListItem>
+                  Bust it with{" "}
+                  <Code>Developers &gt; Domains &gt; Check Domain Status</Code>
+                </ListItem>
+              </ListRoot>
+            </ListItem>
+            <ListItem>
+              <b>Frame Page</b>
+              <ListRoot ml={4}>
+                <ListItem>
+                  Cached by end users browser based on cache-control policy
+                </ListItem>
+                <ListItem>
+                  Bust by clearing browser cache, on mobile launching it from
+                  the <Code>Developers &gt; Frames</Code> will clear WebView
+                  cache
+                </ListItem>
+              </ListRoot>
+            </ListItem>
+            <ListItem>
+              <b>Frame Embed metadata hosted on URL</b>
+              <ListRoot ml={4}>
+                <ListItem>
+                  Cached indefinitely by Warpcast servers after being scraped
+                  once.
+                </ListItem>
+                <ListItem>
+                  Bust by resubmitting the URL in the{" "}
+                  <Code>Developers &gt; Frames &gt; Frame Embed</Code>
+                </ListItem>
+              </ListRoot>
+            </ListItem>
+            <ListItem>
+              <b>Frame Embed thats been embedded in a Cast</b>
+              <ListRoot ml={4}>
+                <ListItem>
+                  Cached indefinitely by Warpcast servers as it get's replicated
+                  into thousands of feeds.
+                </ListItem>
+                <ListItem>
+                  Bust by resubmitting the URL in the{" "}
+                  <Code>Developers &gt; Frames &gt; Frame Embed</Code>
+                </ListItem>
+              </ListRoot>
+            </ListItem>
+            <ListItem>
+              <b>Frame Image</b>
+              <ListRoot ml={4}>
+                <ListItem>
+                  Cached based on the cache-control header by your browser as
+                  well as Warpcast proxy.
+                </ListItem>
+                <ListItem>Bust it by changing the URL</ListItem>
+              </ListRoot>
+            </ListItem>
+          </ListRoot>
+        </VStack>
+      ),
+      link: {
+        title: "Farcaster Frames v2 - Caching",
+        link: "https://warpcast.com/deodad/0xdc024835",
       },
     },
   ];

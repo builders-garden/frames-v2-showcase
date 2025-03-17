@@ -15,19 +15,28 @@ export const resourcesData: Resource[] = [
     id: MenuLink.LiveFrames,
     links: [
       {
-        imgSrc: "./links/yoink.avif",
-        title: "Yoink",
-        subtitle: "Click to yoink the flag!",
-        href: "https://yoink.party/framesV2",
+        imgSrc: "./links/farville.png",
+        title: "FarVille",
+        subtitle: "Plant, grow and harvest crop with frens",
+        href: "https://farville.farm",
         imgProps: {
           borderRadius: borderRadiusFramesLogos,
         },
       },
       {
-        imgSrc: "./links/farville.png",
-        title: "FarVille",
-        subtitle: "Plant, grow and harvest crop with frens",
-        href: "https://farville.farm",
+        imgSrc: "./links/betttr.png",
+        title: "Betttr",
+        subtitle: "Sport Betting on Farcaster, powered by Azuro",
+        href: "https://betttr.xyz",
+        imgProps: {
+          borderRadius: borderRadiusFramesLogos,
+        },
+      },
+      {
+        imgSrc: "./links/yoink.avif",
+        title: "Yoink",
+        subtitle: "Click to yoink the flag!",
+        href: "https://yoink.party/framesV2",
         imgProps: {
           borderRadius: borderRadiusFramesLogos,
         },

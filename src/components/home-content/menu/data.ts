@@ -14,6 +14,11 @@ export enum MenuLink {
   NotificationsAndWebhook = "notifications-&-webhook",
   Signature = "signature",
   TipsAndTricks = "tips-&-tricks",
+  TipsAndTricksLocalFramesDebugger = "tips-&-tricks-local-frames-debugger",
+  TipsAndTricksNgrok = "tips-&-tricks-ngrok",
+  TipsAndTricksRememberToLoadContext = "tips-&-tricks-remember-to-load-context",
+  TipsAndTricksEveryWebAppCanBeAFrame = "tips-&-tricks-every-web-app-can-be-a-frame",
+  TipsAndTricksWhyIsMyFrameCached = "tips-&-tricks-why-is-my-frame-cached",
   Resources = "resources",
   LiveFrames = "live-frames",
   ExampleProjects = "example-projects",
@@ -42,7 +47,29 @@ export const menuItems = [
       { text: "Send Transaction", value: MenuLink.SendTransaction },
     ],
   },
-  { text: "Tips & Tricks", value: MenuLink.TipsAndTricks },
+  {
+    text: "Tips & Tricks",
+    value: MenuLink.TipsAndTricks,
+    subitems: [
+      {
+        text: "Local Frames.js debugger",
+        value: MenuLink.TipsAndTricksLocalFramesDebugger,
+      },
+      { text: "Ngrok", value: MenuLink.TipsAndTricksNgrok },
+      {
+        text: "Remember to load the context",
+        value: MenuLink.TipsAndTricksRememberToLoadContext,
+      },
+      {
+        text: "Every web app can be a frame",
+        value: MenuLink.TipsAndTricksEveryWebAppCanBeAFrame,
+      },
+      {
+        text: "Why is my frame cached!?",
+        value: MenuLink.TipsAndTricksWhyIsMyFrameCached,
+      },
+    ],
+  },
   {
     text: "Resources",
     value: MenuLink.Resources,

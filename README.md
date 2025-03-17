@@ -1,4 +1,4 @@
-# Speedrun frames v2
+# Speedrun frames v2 
 
 This project demonstrates various implementations and use cases of Farcaster Frames v2, built with Next.js.
 

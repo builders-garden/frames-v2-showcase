@@ -27,7 +27,7 @@
     "dotenv": "^16.4.7",
     "drizzle-orm": "^0.38.3",
     "ethers": "^6.13.5",
-    "next": "15.1.4",
+    "next": "15.1.11",
     "next-auth": "4.24.11",
     "next-themes": "^0.4.4",
     "react": "^19.0.0",
@@ -46,5 +46,6 @@
     "react-syntax-highlighter": "^15.6.1",
     "tsx": "^4.19.2",
     "typescript": "^5"
-  }
+  },
+  "packageManager": "pnpm@10.25.0+sha512.5e82639027af37cf832061bcc6d639c219634488e0f2baebe785028a793de7b525ffcd3f7ff574f5e9860654e098fe852ba8ac5dd5cefe1767d23a020a92f501"
 }
